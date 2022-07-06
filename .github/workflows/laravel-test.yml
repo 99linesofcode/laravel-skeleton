@@ -1,0 +1,11 @@
+name: Laravel Tests
+
+on: [push, pull_request]
+# on:
+#   push:
+#     paths:
+#       - 'api/**'
+
+jobs:
+  tests:
+    uses: 99linesofcode/.github/.github/workflows/laravel-test.yml@main
