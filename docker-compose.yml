@@ -28,6 +28,30 @@ services:
             - meilisearch
             - selenium
 
+  node:
+    container_name: ${APP_NAME}.node
+    image: 'node:${NODE_VERSION}-alpine'
+    user: node
+    working_dir: '/var/www/html/nuxt'
+    ports:
+      - '${FORWARD_NODE_PORT:-3000}:3000'
+    environment:
+      - NODE_ENV=${APP_ENV}
+    volumes:
+      - '../nuxt:/var/www/html/nuxt'
+    command: "npm run dev"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--spider",
+          "http://localhost:3000"
+        ]
+      retries: 3
+      timeout: 5s
+
     mysql:
         container_name: ${APP_NAME}.mysql
         image: 'mysql/mysql-server:8.0'
