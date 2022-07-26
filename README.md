@@ -2,6 +2,12 @@
 
 Deze repository bevat een Laravel applicatie geconfigureerd volgens Domain Driven Design principes. Compleet met automations op basis van Github Actions om code automatisch te testen met behulp van PHPUnit.
 
+## Local development
+
+Development vindt plaats in een Docker omgeving welke je met een simpel commando kunt optuigen. We maken daarbij gebruik van een custom Laravel Sail configuratie. Voor meer informatie over de werking daarvan verwijs ik je naar de Laravel documentatie.
+
+Het is belangrijk om te vermelden dat Laravel/Sail is geconfigureerd voor gebruik in een monorepo setup. Het verwacht dat je een project opzet met daarin twee folders: `/api` (waar de code uit deze repository leeft) en `/nuxt` (waar de code uit `nuxt-skeleton` dan komt te staan). Mocht je afwijken van die configuratie dan zul je e.e.a. aan moeten passen in de `docker-compose.yml` en bestanden onder `/docker`.
+
 ## Tech stack & Tooling
 
 * [Laravel 9.x](https://laravel.com/docs) - PHP framework for web artisans
