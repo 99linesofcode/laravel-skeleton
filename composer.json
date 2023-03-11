@@ -24,12 +24,12 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/App",
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/",
       "Domain\\": "src/Domain/",
       "Infrastructure\\": "src/Infrastructure/",
       "Support\\": "src/Support/",
-      "Database\\Factories\\": "database/factories/",
-      "Database\\Seeders\\": "database/seeders/"
     }
   },
   "autoload-dev": {
