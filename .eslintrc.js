@@ -2,16 +2,15 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2022: true,
     node: true
   },
   extends: [
-    '@nuxtjs/eslint-config-typescript'
+    'eslint:recommended',
+    "plugin:json/recommended",
+    'plugin:@typescript-eslint/recommended'
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
@@ -25,6 +24,6 @@ module.exports = {
       asyncArrow: 'always'
     }],
     'spaced-comment': 'error',
-    semi: ['error', 'always'],
+    semi: ['error', 'always']
   }
 };
