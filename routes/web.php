@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::view('/', 'welcome');
+
+Route::get('up', \Spatie\Health\Http\Controllers\SimpleHealthCheckController::class);
