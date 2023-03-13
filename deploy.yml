@@ -1,0 +1,18 @@
+service: laravel-skeleton
+
+image: 99linesofcode/laravel-skeleton
+servers:
+  - 188.166.1.153
+
+registry:
+  server: ghcr.io
+  username: 99linesofcode
+  password:
+    - MRSK_REGISTRY_PASSWORD
+
+builder:
+  multiarch: false
+
+healthcheck:
+  path: /up
+  port: 80
