@@ -19,14 +19,14 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 // use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Support\Middleware\PreventRequestsDuringMaintenance;
-// use Support\Middleware\TrustHosts;
-use Support\Middleware\TrimStrings;
-use Support\Middleware\TrustProxies;
-use Support\Middleware\EncryptCookies;
-use Support\Middleware\Authenticate;
-use Support\Middleware\VerifyCsrfToken;
-use Support\Middleware\RedirectIfAuthenticated;
+use App\Middleware\Authenticate;
+// use App\Middleware\TrustHosts;
+use App\Middleware\EncryptCookies;
+use App\Middleware\PreventRequestsDuringMaintenance;
+use App\Middleware\RedirectIfAuthenticated;
+use App\Middleware\TrimStrings;
+use App\Middleware\TrustProxies;
+use App\Middleware\VerifyCsrfToken;
 
 class HttpKernel extends Kernel
 {

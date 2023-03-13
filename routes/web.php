@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Kigkonsult\Icalcreator\Vcalendar;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
