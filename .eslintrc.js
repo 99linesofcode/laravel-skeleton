@@ -6,13 +6,11 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    "plugin:json/recommended",
     'plugin:@typescript-eslint/recommended'
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'off',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -24,6 +22,7 @@ module.exports = {
       asyncArrow: 'always'
     }],
     'spaced-comment': 'error',
-    semi: ['error', 'always']
+    'semi': ['error', 'always'],
+    '@typescript-eslint/no-unused-vars': 'off',
   }
 };
