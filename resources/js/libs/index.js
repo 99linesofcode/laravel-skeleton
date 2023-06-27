@@ -1,2 +1,2 @@
-import 'turbo';
-import 'alpine';
+import 'libs/turbo';
+import 'controllers';
