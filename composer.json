@@ -14,7 +14,8 @@
     "laravel/framework": "^10.0",
     "laravel/tinker": "^2.5",
     "spatie/laravel-health": "^1.22",
-    "tonysm/importmap-laravel": "^1.4"
+    "tonysm/importmap-laravel": "^1.4",
+    "tonysm/tailwindcss-laravel": "^0.10.1"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",
