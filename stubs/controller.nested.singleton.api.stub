@@ -3,11 +3,11 @@
 namespace {{ namespace }};
 
 use {{ namespacedModel }};
-use {{ rootNamespace }}BaseController as Controller;
+use {{ rootNamespace }}BaseController;
 use Illuminate\Http\Request;
 use {{ namespacedParentModel }};
 
-class {{ class }} extends Controller
+class {{ class }} extends BaseController
 {
     /**
      * Store the newly created resource in storage.
