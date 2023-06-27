@@ -3,8 +3,8 @@
 namespace App\Breeze\Controllers\Auth;
 
 use App\BaseController;
-use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Domain\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
