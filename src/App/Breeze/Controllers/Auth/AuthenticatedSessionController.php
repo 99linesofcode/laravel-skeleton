@@ -3,7 +3,7 @@
 namespace App\Breeze\Controllers\Auth;
 
 use App\BaseController;
-use App\Http\Requests\Auth\LoginRequest;
+use App\Breeze\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
