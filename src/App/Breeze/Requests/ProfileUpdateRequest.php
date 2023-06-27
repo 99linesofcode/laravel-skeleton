@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Breeze\Requests;
 
 use Domain\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
