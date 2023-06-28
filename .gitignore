@@ -12,8 +12,8 @@
 /public/build
 /storage/*.key
 /vendor
+/bin/tailwindcss
 
 docker-compose.override.yml
 npm-debug.log
-tailwindcss
 yarn-error.log

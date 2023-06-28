@@ -1,6 +1,6 @@
 <?php
 
-use App\Breeze\Controllers\ProfileController;
+use App\Auth\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*

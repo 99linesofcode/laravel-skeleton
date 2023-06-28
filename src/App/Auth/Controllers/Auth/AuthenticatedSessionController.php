@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Breeze\Controllers\Auth;
+namespace App\Auth\Controllers\Auth;
 
+use App\Auth\Requests\Auth\LoginRequest;
 use App\BaseController;
-use App\Breeze\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

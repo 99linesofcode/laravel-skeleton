@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Breeze\Requests\Auth;
+namespace App\Auth\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
