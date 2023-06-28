@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Breeze\Controllers\Auth;
+namespace App\Auth\Controllers\Auth;
 
 use App\BaseController;
 use App\Providers\RouteServiceProvider;

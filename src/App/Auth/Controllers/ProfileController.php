@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Breeze\Controllers;
+namespace App\Auth\Controllers;
 
+use App\Auth\Requests\ProfileUpdateRequest;
 use App\BaseController;
-use App\Breeze\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
