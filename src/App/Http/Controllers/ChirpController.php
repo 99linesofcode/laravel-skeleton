@@ -82,6 +82,13 @@ class ChirpController extends BaseController
 
         $chirp->update($validated);
 
+        if ($request->wantsTurboStream()) {
+            return turbo_stream([
+                turbo_stream($chirp),
+                turbo_stream()->append('notifications', view('layouts.notification', ['message' => __('Chirp updated.')])),
+            ]);
+        }
+
         return redirect()->route('chirps.index')->with('status', __('Chirp updated.'));
     }
 
