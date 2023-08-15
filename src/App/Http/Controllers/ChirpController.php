@@ -95,11 +95,18 @@ class ChirpController extends BaseController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Chirp $chirp)
+    public function destroy(Request $request, Chirp $chirp)
     {
         $this->authorize('delete', $chirp);
 
         $chirp->delete();
+
+        if ($request->wantsTurboStream()) {
+            return turbo_stream([
+                turbo_stream($chirp),
+                turbo_stream()->append('notifications', view('layouts.notification', ['message' => __('Chirp deleted.')])),
+            ]);
+        }
 
         return redirect()->route('chirps.index')->with('status', __('Chirp deleted.'));
     }
