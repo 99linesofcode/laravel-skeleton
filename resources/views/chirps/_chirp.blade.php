@@ -15,29 +15,29 @@
             </div>
 
             @if (Auth::id() === $chirp->user->id)
-            <x-dropdown align="right" width="48">
-                <x-slot name="trigger">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                    </button>
-                </x-slot>
+              <x-dropdown align="right" width="48">
+                  <x-slot name="trigger">
+                      <button>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                          </svg>
+                      </button>
+                  </x-slot>
 
-                <x-slot name="content">
-                    <a href="{{ route('chirps.edit', $chirp) }}" class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out">
-                        Edit
-                    </a>
+                  <x-slot name="content">
+                      <a href="{{ route('chirps.edit', $chirp) }}" class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out">
+                          Edit
+                      </a>
 
-                    <form action="{{ route('chirps.destroy', $chirp) }}" method="POST">
-                        @method('DELETE')
+                      <form action="{{ route('chirps.destroy', $chirp) }}" method="POST">
+                          @method('DELETE')
 
-                        <button class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out">
-                            Delete
-                        </button>
-                      </form>
-                </x-slot>
-            </x-dropdown>
+                          <button class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out">
+                              Delete
+                          </button>
+                        </form>
+                  </x-slot>
+              </x-dropdown>
             @endif
         </div>
         <p class="mt-4 text-lg text-gray-900">{{ $chirp->message }}</p>
