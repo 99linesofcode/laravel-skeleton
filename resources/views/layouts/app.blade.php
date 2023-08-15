@@ -12,7 +12,7 @@
         content="{{ csrf_token() }}"
     >
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link
@@ -35,6 +35,7 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
+        @include('layouts.notifications')
 
         <!-- Page Heading -->
         @if (isset($header))
