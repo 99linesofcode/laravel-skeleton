@@ -42,7 +42,7 @@ class ChirpController extends BaseController
             return turbo_stream([
                 turbo_stream($chirp, 'prepend'),
                 turbo_stream()->update('create_chirp', view('chirps._form')),
-                turbo_stream()->append('notifications', view('layouts.notification', ['message' => 'Chirp created.'])),
+                turbo_stream()->flash(__('Chirp created.')),
             ]);
         }
 
@@ -85,7 +85,7 @@ class ChirpController extends BaseController
         if ($request->wantsTurboStream()) {
             return turbo_stream([
                 turbo_stream($chirp),
-                turbo_stream()->append('notifications', view('layouts.notification', ['message' => __('Chirp updated.')])),
+                turbo_stream()->flash(__('Chirp updated.')),
             ]);
         }
 
@@ -104,7 +104,7 @@ class ChirpController extends BaseController
         if ($request->wantsTurboStream()) {
             return turbo_stream([
                 turbo_stream($chirp),
-                turbo_stream()->append('notifications', view('layouts.notification', ['message' => __('Chirp deleted.')])),
+                turbo_stream()->flash(__('Chirp deleted.')),
             ]);
         }
 
