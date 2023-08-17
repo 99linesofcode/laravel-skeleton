@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'right', 'width' => '48', 'class' => '', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700', 'dataController' => '', 'dataAction' => ''])
 
 @php
     switch ($align) {
@@ -13,7 +13,7 @@
             $alignmentClasses = 'origin-top-right right-0';
             break;
     }
-    
+
     switch ($width) {
         case '48':
             $width = 'w-48';
@@ -22,9 +22,9 @@
 @endphp
 
 <div
-    class="relative"
-    data-controller="dropdown"
-    data-action="turbo:before-cache@window->dropdown#closeNow click@window->dropdown#close close->dropdown#close"
+    class="relative {{ $class }}"
+    data-controller="dropdown {{ $dataController }}"
+    data-action="turbo:before-cache@window->dropdown#closeNow click@window->dropdown#close close->dropdown#close {{ $dataAction }}" {{ $attributes }}
 >
     <div
         data-action="click->dropdown#toggle"
