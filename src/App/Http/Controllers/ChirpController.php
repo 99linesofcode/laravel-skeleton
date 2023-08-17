@@ -46,7 +46,9 @@ class ChirpController extends BaseController
             ]);
         }
 
-        return redirect()->route('chirps.index')->with('status', __('Chirp created.'));
+        return redirect()
+            ->route('chirps.index')
+            ->with('status', __('Chirp created.'));
     }
 
     /**

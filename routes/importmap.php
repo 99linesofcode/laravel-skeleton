@@ -226,3 +226,5 @@ Importmap::pin('laravel-echo', to: 'https://ga.jspm.io/npm:laravel-echo@1.15.1/d
 Importmap::pin('pusher-js', to: 'https://ga.jspm.io/npm:pusher-js@8.2.0/dist/web/pusher.js');
 Importmap::pin('el-transition', to: 'https://ga.jspm.io/npm:el-transition@0.0.7/index.js');
 Importmap::pin("@github/time-elements", to: "https://ga.jspm.io/npm:@github/time-elements@4.0.0/dist/index.js");
+Importmap::pin("laravel-echo", to: "https://ga.jspm.io/npm:laravel-echo@1.15.2/dist/echo.js");
+Importmap::pin("pusher-js", to: "https://ga.jspm.io/npm:pusher-js@8.3.0/dist/web/pusher.js");

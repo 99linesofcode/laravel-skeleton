@@ -12,6 +12,8 @@
         content="{{ csrf_token() }}"
     >
 
+    @include('layouts.current-meta')
+
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->

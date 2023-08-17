@@ -15,8 +15,14 @@
                     @endunless
                 </div>
 
-                @if (Auth::id() === $chirp->user->id)
-                <x-dropdown align="right" width="48">
+                <x-dropdown
+                  align="right"
+                  width="48"
+                  class="hidden"
+                  data-controller="visible-to-creator"
+                  data-visible-to-creator-id-value="{{ $chirp->user_id }}"
+                  data-visible-to-creator-hidden-class="hidden"
+                >
                     <x-slot name="trigger">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -38,7 +44,6 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-                @endif
             </div>
             <p class="mt-4 text-lg text-gray-900">{{ $chirp->message }}</p>
         </div>
