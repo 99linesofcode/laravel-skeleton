@@ -1,10 +1,10 @@
 {
-  "name": "laravel/laravel",
+  "name": "99linesofcode/laravel-skeleton",
   "type": "project",
-  "description": "The Laravel Framework.",
+  "description": "Our skeleton application for the Laravel framework.",
   "keywords": [
-    "framework",
-    "laravel"
+    "laravel",
+    "framework"
   ],
   "license": "MIT",
   "require": {
@@ -12,8 +12,8 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "hotwired/stimulus-laravel": "^0.2.0",
     "hotwired/turbo-laravel": "^1.12",
-    "laravel/framework": "^10.0",
-    "laravel/tinker": "^2.5",
+    "laravel/framework": "^10.10",
+    "laravel/tinker": "^2.8",
     "spatie/laravel-health": "^1.22",
     "tonysm/importmap-laravel": "^1.4",
     "tonysm/tailwindcss-laravel": "^0.10.1"
@@ -25,7 +25,7 @@
     "mockery/mockery": "^1.4.4",
     "nunomaduro/collision": "^7.0",
     "nunomaduro/larastan": "^2.0",
-    "phpunit/phpunit": "^10.0",
+    "phpunit/phpunit": "^10.1",
     "spatie/laravel-ignition": "^2.0"
   },
   "autoload": {
@@ -70,7 +70,8 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "allow-plugins": {
-      "pestphp/pest-plugin": false
+      "pestphp/pest-plugin": true,
+      "php-http/discovery": true
     }
   },
   "minimum-stability": "stable",
