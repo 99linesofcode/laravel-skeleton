@@ -23,7 +23,7 @@ class ConsoleKernel extends Kernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('cache:prune-stale-tags')->hourly();
     }
 
     /**
