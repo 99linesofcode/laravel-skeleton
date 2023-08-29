@@ -10,7 +10,7 @@
   "require": {
     "php": "^8.1",
     "guzzlehttp/guzzle": "^7.0.1",
-    "hotwired/stimulus-laravel": "^0.2.0",
+    "hotwired-laravel/stimulus-laravel": "^0.2.0",
     "hotwired/turbo-laravel": "^1.12",
     "laravel/framework": "^10.0",
     "laravel/tinker": "^2.5",
