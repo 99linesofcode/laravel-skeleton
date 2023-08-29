@@ -9,20 +9,16 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         PendingTurboStreamResponse::macro('flash', function ($message) {
             return turbo_stream()->append('notifications', view('layouts.notification', [
