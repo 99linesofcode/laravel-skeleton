@@ -12,8 +12,9 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "hotwired/stimulus-laravel": "^0.2.0",
     "hotwired/turbo-laravel": "^1.12",
-    "laravel/framework": "^10.10",
-    "laravel/tinker": "^2.8",
+    "laravel/framework": "^10.0",
+    "laravel/tinker": "^2.5",
+    "pusher/pusher-php-server": "^7.2",
     "spatie/laravel-health": "^1.22",
     "tonysm/importmap-laravel": "^1.4",
     "tonysm/tailwindcss-laravel": "^0.10.1"
