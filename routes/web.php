@@ -3,6 +3,7 @@
 use App\Auth\Controllers\ProfileController;
 use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Health\Http\Controllers\SimpleHealthCheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('healthz', SimpleHealthCheckController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
