@@ -1,0 +1,104 @@
+service: laravel-skeleton
+
+image: 99linesofcode/laravel-skeleton
+
+builder:
+  multiarch: false
+config_file: ./deploy.yml
+ssh:
+  user: jordy
+
+servers:
+  web:
+    hosts:
+      - 213.165.72.226
+    options:
+      network: "server01.net"
+    labels:
+      traefik.http.routers.app.rule: Host(`playground.99linesofcode.nl`)
+      traefik.http.routers.app_secure.entrypoints: websecure
+      traefik.http.routers.app_secure.tls.certresolver: letsencrypt
+      traefik.http.services.traefik.loadbalancer.server.scheme: https
+
+registry:
+  server: ghcr.io
+  username: 99linesofcode
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+healthcheck:
+  path: /healthz
+  port: 80
+
+traefik:
+  image: traefik:v2.10
+  options:
+    network: "server01.net"
+    publish:
+      - 443:443
+    volume:
+      - "/home/jordy/.config/letsencrypt:/letsencrypt"
+  args:
+    entryPoints.web.address: ":80"
+    entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
+    entryPoints.websecure.http.tls: true
+    entryPoints.websecure.http.tls.domains[0].main: "99linesofcode.nl"
+    entryPoints.websecure.http.tls.domains[0].sans: "*.99linesofcode.nl"
+    certificatesResolvers.letsencrypt.acme.email: "jordy@schreuders.it"
+    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
+    certificatesResolvers.letsencrypt.acme.dnschallenge: true
+    certificatesResolvers.letsencrypt.acme.dnschallenge.provider: "cloudflare"
+    serversTransport.insecureSkipVerify: true
+  env:
+    secret:
+      - CLOUDFLARE_EMAIL
+      - CLOUDFLARE_DNS_API_TOKEN
+
+accessories:
+  mysql:
+    host: 213.165.72.226
+    image: mysql/mysql-server:8.0
+    ports:
+      - 3306:3306
+    env:
+      clear:
+        MYSQL_ROOT_PASSWORD: "secret"
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_DATABASE: "default"
+        MYSQL_USER: "default"
+        MYSQL_PASSWORD: "secret"
+    options:
+      network: "server01.net"
+  redis:
+    image: redis:alpine
+    roles:
+      - web
+    ports:
+      - 6379:6379
+    options:
+      network: "server01.net"
+  meilisearch:
+    host: 213.165.72.226
+    image: getmeili/meilisearch:latest
+    ports:
+      - 7700:7700
+    options:
+      network: "server01.net"
+  soketi:
+    host: 213.165.72.226
+    image: quay.io/soketi/soketi:latest
+    ports:
+      - 6001:6001
+      - 9601:9601
+    env:
+      clear:
+        SOKETI_DEBUG: -1
+        SOKETI_METRICS_SERVER_PORT: 9601
+        SOKETI_DEFAULT_APP_ID: "app-id"
+        SOKETI_DEFAULT_APP_KEY: "app-key"
+        SOKETI_DEFAULT_APP_SECRET: "app-secret"
+    options:
+      network: "server01.net"
