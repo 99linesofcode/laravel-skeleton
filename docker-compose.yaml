@@ -14,9 +14,9 @@ services:
       - CLOUDFLARE_DNS_API_TOKEN=${CLOUDFLARE_DNS_API_TOKEN}
     command:
       # - --api.dashboard=true
-      # - --accesslog=true
+      - --accesslog=true
       # - --accesslog.filepath=/var/log/traefik/access.log
-      # - --log.level=DEBUG
+      - --log.level=DEBUG
       # - --log.filepath=/var/log/traefik/traefik.log
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
@@ -32,8 +32,8 @@ services:
       - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
       - --certificatesresolvers.letsencrypt.acme.dnschallenge.delaybeforecheck=0
       - --certificatesresolvers.letsencrypt.acme.dnschallenge.resolvers=1.1.1.1,9.9.9.9,8.8.8.8
-    #   - --certificatesresolvers.letsencrypt.acme.dnschallenge.disablepropagationcheck=true
-    #   - --certificatesresolvers.letsencrypt.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.disablepropagationcheck=true
+      - --certificatesresolvers.letsencrypt.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
     # labels:
     #   - traefik.enable=true
     #   - traefik.http.routers.traefik.entrypoints=websecure
@@ -41,25 +41,26 @@ services:
     #   - traefik.http.routers.traefik.service=api@internal
     #   - traefik.http.routers.traefik.tls.certresolver=letsencrypt
 
-  # whoami:
-  #   image: traefik/whoami
-  #   labels:
-  #     - traefik.enable=true
-  #     - traefik.http.routers.whoami.entrypoints=websecure
-  #     - traefik.http.routers.whoami.rule=Host(`whoami.99linesofcode.nl`)
-  #     - traefik.http.routers.whoami.tls.certresolver=letsencrypt
+  whoami:
+    image: traefik/whoami
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.whoami.entrypoints=websecure
+      - traefik.http.routers.whoami.rule=Host(`whoami.99linesofcode.nl`)
+      - traefik.http.routers.whoami.tls.certresolver=letsencrypt
 
   php:
     build:
-      dockerfile: Dockerfile
-      context: ..
+      context: .
     environment:
       - SERVER_NAME=${APP_URL}
+    env_file:
+      - .env
     # volumes:
     #   - ../laravel-skeleton/frankenphp/Caddyfile:/etc/caddy/Caddyfile
     labels:
       - traefik.enable=true
-      - traefik.tcp.routers.php.rule=HostSNI(`${APP_URL}`)
+      - traefik.tcp.routers.php.rule=HostSNI(`playground.99linesofcode.nl`)
       - traefik.tcp.routers.php.tls.passthrough=true
       - traefik.tcp.services.php.loadbalancer.server.port=443
 
