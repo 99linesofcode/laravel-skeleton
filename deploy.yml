@@ -24,8 +24,6 @@ servers:
   web:
     hosts:
       - 213.165.72.226
-    builder:
-      context: ..
     labels:
       traefik.enable: true
       traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`)

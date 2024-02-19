@@ -11,6 +11,4 @@ RUN install-php-extensions \
   && docker-php-ext-enable redis \
   && cp $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini;
 
-COPY ./kamal/Caddyfile /etc/caddy/Caddyfile
-
 COPY . /app
