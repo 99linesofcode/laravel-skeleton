@@ -9,6 +9,8 @@ registry:
     - KAMAL_REGISTRY_PASSWORD
 
 builder:
+  args:
+    APP_URL: "https://playground.99linesofcode.nl"
   multiarch: false
 
 config_file: ./deploy.yml

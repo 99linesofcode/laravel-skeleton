@@ -1,6 +1,15 @@
-FROM dunglas/frankenphp:1.1.0
+# syntax=docker/dockerfile:1
 
-ENV SERVER_NAME="https://playground.99linesofcode.nl"
+ARG PACKAGE_VERSION="1.1.0"
+ARG BASE_IMAGE="dunglas/frankenphp:${PACKAGE_VERSION}"
+
+FROM ${BASE_IMAGE}
+
+LABEL org.opencontainers.image.authors="99linesofcode@gmail.com"
+
+ARG APP_URL
+
+ENV SERVER_NAME=${APP_URL}
 
 RUN install-php-extensions \
   intl \
