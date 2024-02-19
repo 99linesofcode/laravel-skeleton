@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp
+FROM dunglas/frankenphp:1.1.0
 
 ENV SERVER_NAME="https://playground.99linesofcode.nl"
 
