@@ -33,7 +33,7 @@ servers:
       traefik.tcp.routers.web.tls.passthrough: true
       traefik.tcp.services.web.loadbalancer.server.port: 443
     options:
-      network: "server01.net" # necessary when adding new services to a preexisting load balancer
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
 
 accessories:
   mysql:
@@ -46,13 +46,19 @@ accessories:
         - MYSQL_DATABASE
         - MYSQL_USER
         - MYSQL_PASSWORD
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
   redis:
     image: redis:alpine
     roles:
       - web
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
   meilisearch:
     image: getmeili/meilisearch:latest
     host: 213.165.72.226
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
   soketi:
     image: quay.io/soketi/soketi:latest
     host: 213.165.72.226
@@ -63,3 +69,5 @@ accessories:
         - SOKETI_DEFAULT_APP_ID
         - SOKETI_DEFAULT_APP_KEY
         - SOKETI_DEFAULT_APP_SECRET
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
