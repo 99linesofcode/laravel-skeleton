@@ -1,0 +1,6 @@
+.env.example
+.gitattributes
+.gitignore
+
+.github/
+.vscode/

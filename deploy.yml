@@ -1,18 +1,83 @@
 service: laravel-skeleton
 
 image: 99linesofcode/laravel-skeleton
-servers:
-  - 188.166.1.153
 
 registry:
   server: ghcr.io
   username: 99linesofcode
   password:
-    - MRSK_REGISTRY_PASSWORD
+    - KAMAL_REGISTRY_PASSWORD
 
 builder:
+  args:
+    APP_URL: "https://playground.99linesofcode.nl"
   multiarch: false
 
+config_file: ./deploy.yml
+
+ssh:
+  user: jordy
+
 healthcheck:
-  path: /up
+  path: /healthz
   port: 80
+  max_attempts: 12
+  interval: 10s
+
+servers:
+  web:
+    hosts:
+      - 213.165.72.226
+    traefik: false # disabled because we are already behind a reverse proxy here
+    labels:
+      traefik.enable: true
+      traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`)
+      traefik.tcp.routers.web.tls.passthrough: true
+      traefik.tcp.services.web.loadbalancer.server.port: 443
+    directories:
+      - "$HOME/.config/caddy/config:/config"
+      - "$HOME/.config/caddy/data:/data"
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+
+accessories:
+  mysql:
+    image: mysql/mysql-server:8.0
+    host: 213.165.72.226
+    env:
+      secret:
+        - MYSQL_ROOT_PASSWORD
+        - MYSQL_DATABASE
+        - MYSQL_USER
+        - MYSQL_PASSWORD
+    volumes:
+      - vol.mysql:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  redis:
+    image: redis:alpine
+    roles:
+      - web
+    volumes:
+      - vol.redis:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    host: 213.165.72.226
+    volumes:
+      - vol.meilisearch:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  soketi:
+    image: quay.io/soketi/soketi:latest-16-alpine
+    host: 213.165.72.226
+    env:
+      secret:
+        - SOKETI_DEBUG
+        - SOKETI_METRICS_SERVER_PORT
+        - SOKETI_DEFAULT_APP_ID
+        - SOKETI_DEFAULT_APP_KEY
+        - SOKETI_DEFAULT_APP_SECRET
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer

@@ -32,6 +32,7 @@
         rel="stylesheet"
         href="{{ tailwindcss('css/app.css') }}"
     />
+    <link rel="stylesheet" href="{{ tailwindcss('css/app.css') }}" />
 </head>
 
 <body class="font-sans antialiased">
