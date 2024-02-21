@@ -21,6 +21,8 @@ ssh:
 healthcheck:
   path: /healthz
   port: 80
+  max_attempts: 12
+  interval: 10s
 
 servers:
   web:
