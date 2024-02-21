@@ -1,13 +1,15 @@
-name: Laravel Tests
+name: test
 
-on: [push, pull_request]
-# on:
-#   push:
-#     paths:
-#       - 'api/**'
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches-ignore:
+      - main
 
 jobs:
-  tests:
+  test:
     defaults:
       run:
         working-directory: .
