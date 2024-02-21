@@ -28,7 +28,7 @@ servers:
   web:
     hosts:
       - 213.165.72.226
-    traefik: false # disable setting up traefik load balancer for this container
+    traefik: false # disabled because we are already behind a reverse proxy here
     labels:
       traefik.enable: true
       traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`)
@@ -73,7 +73,7 @@ accessories:
     image: quay.io/soketi/soketi:latest-16-alpine
     host: 213.165.72.226
     env:
-      clear:
+      secret:
         - SOKETI_DEBUG
         - SOKETI_METRICS_SERVER_PORT
         - SOKETI_DEFAULT_APP_ID
