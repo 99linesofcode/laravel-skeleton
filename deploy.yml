@@ -70,7 +70,7 @@ accessories:
     options:
       network: "server01.net" # necessary when adding services to a pre-existing load balancer
   soketi:
-    image: quay.io/soketi/soketi:latest
+    image: quay.io/soketi/soketi:latest-16-alpine
     host: 213.165.72.226
     env:
       clear:
