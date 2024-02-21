@@ -34,6 +34,9 @@ servers:
       traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`)
       traefik.tcp.routers.web.tls.passthrough: true
       traefik.tcp.services.web.loadbalancer.server.port: 443
+    directories:
+      - "$HOME/.config/caddy/config:/config"
+      - "$HOME/.config/caddy/data:/data"
     options:
       network: "server01.net" # necessary when adding services to a pre-existing load balancer
 
@@ -44,7 +47,6 @@ accessories:
     env:
       secret:
         - MYSQL_ROOT_PASSWORD
-        - MYSQL_ROOT_HOST
         - MYSQL_DATABASE
         - MYSQL_USER
         - MYSQL_PASSWORD
