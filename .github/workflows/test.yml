@@ -10,7 +10,4 @@ on:
 
 jobs:
   test:
-    defaults:
-      run:
-        working-directory: .
     uses: 99linesofcode/.github/.github/workflows/laravel-test.yml@main
