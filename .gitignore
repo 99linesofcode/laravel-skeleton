@@ -22,8 +22,3 @@ yarn-error.log
 .tailwindcss-manifest.json
 /bin/tailwindcss
 /public/dist
-
-/public/css/
-/public/dist/
-.tailwindcss-manifest.json
-tailwindcss

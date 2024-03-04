@@ -1,0 +1,15 @@
+name: test
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches-ignore:
+      - main
+
+jobs:
+  test:
+    uses: 99linesofcode/.github/.github/workflows/test.yml@main
+    with:
+      calling_repository_name: ${{ github.event.repository.name }}
