@@ -10,6 +10,6 @@ on:
 
 jobs:
   test:
-    uses: 99linesofcode/.github/.github/workflows/laravel-test.yml@main
+    uses: 99linesofcode/.github/.github/workflows/test.yml@main
     with:
       calling_repository_name: ${{ github.event.repository.name }}
