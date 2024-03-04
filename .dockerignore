@@ -1,4 +1,6 @@
 .env.example
+.env.testing.github
+.env.encrypted
 .gitattributes
 .gitignore
 
