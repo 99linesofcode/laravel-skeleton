@@ -8,7 +8,4 @@ on:
 
 jobs:
   deploy:
-    defaults:
-      run:
-        working-directory: .
     uses: 99linesofcode/.github/.github/workflows/deploy.yml@main
