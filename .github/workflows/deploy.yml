@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - finalize-deployment
 
 jobs:
   deploy:
