@@ -21,5 +21,3 @@ RUN install-php-extensions \
   && cp $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini;
 
 COPY . /app
-
-COPY docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
