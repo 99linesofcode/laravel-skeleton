@@ -4,7 +4,7 @@ Deze repository bevat een Laravel applicatie geconfigureerd volgens Domain Drive
 
 # Deployment
 
-Deployment gebeurt automatisch zodra de code in een pull request wordt gemerged naar `main`. Hiervoor dienen wel een aantal repository secrets toegevoegd te worden, namelijk:
+Deployment gebeurt automatisch zodra de code in een pull request wordt gemerged naar `main`. Hou er rekening mee dat Kamal standaard is geconfigureerd om applicaties te deployen naar een server waar al een Traefik reverse proxy draait. Kamal zal dus geen nieuwe Traefik instantie opzetten. Om te kunnen deployen dienen wel een aantal repository secrets toegevoegd te worden, namelijk:
 
 * `CONTAINER_REGISTRY_PASSWORD`
 Dit is het wachtwoord van de ingestelde container registry. Kamal logt in op https://ghcr.io met `99linesofcode` en dit wachtwoord.
