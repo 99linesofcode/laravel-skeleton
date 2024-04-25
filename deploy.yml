@@ -2,36 +2,39 @@ service: laravel-skeleton
 
 image: 99linesofcode/laravel-skeleton
 
-registry:
-  server: ghcr.io
-  username: 99linesofcode
-  password:
-    - KAMAL_REGISTRY_PASSWORD
-
 builder:
-  args:
-    APP_URL: "https://playground.99linesofcode.nl"
   multiarch: false
 
 config_file: ./deploy.yml
 
-ssh:
-  user: jordy
+env:
+  secret:
+    - CLOUDFLARE_DNS_API_TOKEN
+    - SERVER_NAME
 
 healthcheck:
   path: /healthz
   port: 80
   max_attempts: 12
-  interval: 10s
+  interval: 20s
+
+registry:
+  server: ghcr.io
+  username: 99linesofcode
+  password:
+    - CONTAINER_REGISTRY_PASSWORD
+
+ssh:
+  user: jordy
 
 servers:
   web:
     hosts:
       - 213.165.72.226
-    traefik: false # disabled because we are already behind a reverse proxy here
+    traefik: false # disabled because in my default configuration we are already behind an existing Traefik proxy (server01)
     labels:
       traefik.enable: true
-      traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`)
+      traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`) # should be identical to $APP_URL
       traefik.tcp.routers.web.tls.passthrough: true
       traefik.tcp.services.web.loadbalancer.server.port: 443
     options:
