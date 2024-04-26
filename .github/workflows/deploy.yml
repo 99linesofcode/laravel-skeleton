@@ -9,6 +9,5 @@ jobs:
   deploy:
     uses: 99linesofcode/.github/.github/workflows/deploy.yml@main
     secrets:
-      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
       LARAVEL_ENV_ENCRYPTION_KEY: ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

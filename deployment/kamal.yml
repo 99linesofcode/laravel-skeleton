@@ -1,0 +1,80 @@
+service: <%= ENV['APP_NAME'] %>
+
+image: 99linesofcode/<%= ENV['APP_NAME'] %>
+
+builder:
+  context: .
+  dockerfile: ./deployment/Dockerfile
+  multiarch: false
+
+env:
+  CLOUDFLARE_DNS_API_TOKEN: <%= ENV['CLOUDFLARE_DNS_API_TOKEN'] %>
+  SERVER_NAME: <%= ENV['APP_URL'] %>
+
+healthcheck:
+  path: /healthz
+  port: 80
+  max_attempts: 12
+  interval: 20s
+
+registry:
+  server: ghcr.io
+  username: <%= ENV['CONTAINER_REGISTRY_USERNAME'] %>
+  password:
+    - CONTAINER_REGISTRY_PASSWORD
+
+ssh:
+  user: <%= ENV['SSH_USERNAME'] %>
+
+servers:
+  web:
+    hosts:
+      - <%= ENV['APP_SERVER_IP'] %>
+    traefik: false # disabled because in my default configuration we are already behind an existing Traefik proxy (server01)
+    labels:
+      traefik.enable: true
+      traefik.tcp.routers.web.rule: HostSNI(`<%= ENV['APP_URL'].sub(/^https?\:\/\/(www.)?/,'') %>`) # should be identical to $APP_URL without protocol or www subdomain
+      traefik.tcp.routers.web.tls.passthrough: true
+      traefik.tcp.services.web.loadbalancer.server.port: 443
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+
+accessories:
+  mysql:
+    image: mysql/mysql-server:8.0
+    host: <%= ENV['DB_SERVER_IP'] %>
+    env:
+      MYSQL_ROOT_PASSWORD: <%= ENV['DB_PASSWORD'] %>
+      MYSQL_DATABASE: <%= ENV['DB_DATABASE'] %>
+      MYSQL_USER: <%= ENV['DB_USERNAME'] %>
+      MYSQL_PASSWORD: <%= ENV['DB_PASSWORD'] %>
+    volumes:
+      - <%= ENV['APP_NAME'] %>-vol-mysql:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  redis:
+    image: redis:alpine
+    roles:
+      - web
+    volumes:
+      - <%= ENV['APP_NAME'] %>-vol-redis:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    host: <%= ENV['MEILISEARCH_SERVER_IP'] %>
+    volumes:
+      - <%= ENV['APP_NAME'] %>-vol-meilisearch:/data
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
+  soketi:
+    image: quay.io/soketi/soketi:latest-16-alpine
+    host: <%= ENV['PUSHER_SERVER_IP'] %>
+    env:
+      SOKETI_DEBUG: -1
+      SOKETI_METRICS_SERVER_PORT: 9601
+      SOKETI_DEFAULT_APP_ID: <%= ENV['PUSHER_APP_ID'] %>
+      SOKETI_DEFAULT_APP_KEY: <%= ENV['PUSHER_APP_KEY'] %>
+      SOKETI_DEFAULT_APP_SECRET: <%= ENV['PUSHER_APP_SECRET'] %>
+    options:
+      network: "server01.net" # necessary when adding services to a pre-existing load balancer
