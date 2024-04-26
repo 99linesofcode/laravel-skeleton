@@ -22,3 +22,4 @@ yarn-error.log
 .tailwindcss-manifest.json
 /bin/tailwindcss
 /public/dist
+/public/js
