@@ -35,13 +35,11 @@ RUN set -eux; \
 COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
 COPY --link deployment/Caddyfile /etc/caddy/Caddyfile
 COPY --link --chmod=755 deployment/docker-php-entrypoint.sh /usr/local/bin/docker-php-entrypoint
-# cache vendors in case only our application source code changed
-COPY --link composer.* vendor/ ./
+
+COPY . ./
 
 RUN set -eux; \
   composer install -n --no-cache --prefer-dist --no-dev --no-scripts -o -a
-
-COPY --link . ./
 
 ENTRYPOINT ["docker-php-entrypoint"]
 

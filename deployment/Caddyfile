@@ -1,5 +1,4 @@
 {
-	acme_ca https://acme-staging-v02.api.letsencrypt.org/directory # TODO remove on succesful deployment test
 	acme_dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
 
 	{$CADDY_GLOBAL_OPTIONS}
