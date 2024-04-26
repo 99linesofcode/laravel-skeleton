@@ -7,9 +7,8 @@ builder:
   multiarch: false
 
 env:
-  secret:
-    - CLOUDFLARE_DNS_API_TOKEN
-    - SERVER_NAME
+  CLOUDFLARE_DNS_API_TOKEN: <%= ENV['CLOUDFLARE_DNS_API_TOKEN'] %>
+  SERVER_NAME: <%= ENV['APP_URL'] %>
 
 healthcheck:
   path: /healthz
@@ -19,21 +18,21 @@ healthcheck:
 
 registry:
   server: ghcr.io
-  username: 99linesofcode
+  username: <%= ENV['CONTAINER_REGISTRY_USERNAME'] %>
   password:
     - CONTAINER_REGISTRY_PASSWORD
 
 ssh:
-  user: jordy
+  user: <%= ENV['SSH_USERNAME'] %>
 
 servers:
   web:
     hosts:
-      - 213.165.72.226
+      - <%= ENV['APP_SERVER_IP'] %>
     traefik: false # disabled because in my default configuration we are already behind an existing Traefik proxy (server01)
     labels:
       traefik.enable: true
-      traefik.tcp.routers.web.rule: HostSNI(`playground.99linesofcode.nl`) # should be identical to $APP_URL
+      traefik.tcp.routers.web.rule: HostSNI(`<%= ENV['APP_URL'] %>`) # should be identical to $APP_URL
       traefik.tcp.routers.web.tls.passthrough: true
       traefik.tcp.services.web.loadbalancer.server.port: 443
     options:
@@ -42,13 +41,12 @@ servers:
 accessories:
   mysql:
     image: mysql/mysql-server:8.0
-    host: 213.165.72.226
+    host: <%= ENV['DB_SERVER_IP'] %>
     env:
-      secret:
-        - MYSQL_ROOT_PASSWORD
-        - MYSQL_DATABASE
-        - MYSQL_USER
-        - MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD: <%= ENV['DB_PASSWORD'] %>
+      MYSQL_DATABASE: <%= ENV['DB_DATABASE'] %>
+      MYSQL_USER: <%= ENV['DB_USERNAME'] %>
+      MYSQL_PASSWORD: <%= ENV['DB_PASSWORD'] %>
     volumes:
       - vol.mysql:/data
     options:
@@ -63,20 +61,19 @@ accessories:
       network: "server01.net" # necessary when adding services to a pre-existing load balancer
   meilisearch:
     image: getmeili/meilisearch:latest
-    host: 213.165.72.226
+    host: <%= ENV['MEILISEARCH_SERVER_IP'] %>
     volumes:
       - vol.meilisearch:/data
     options:
       network: "server01.net" # necessary when adding services to a pre-existing load balancer
   soketi:
     image: quay.io/soketi/soketi:latest-16-alpine
-    host: 213.165.72.226
+    host: <%= ENV['PUSHER_SERVER_IP'] %>
     env:
-      secret:
-        - SOKETI_DEBUG
-        - SOKETI_METRICS_SERVER_PORT
-        - SOKETI_DEFAULT_APP_ID
-        - SOKETI_DEFAULT_APP_KEY
-        - SOKETI_DEFAULT_APP_SECRET
+      SOKETI_DEBUG: -1
+      SOKETI_METRICS_SERVER_PORT: 9601
+      SOKETI_DEFAULT_APP_ID: <%= ENV['PUSHER_APP_ID'] %>
+      SOKETI_DEFAULT_APP_KEY: <%= ENV['PUSHER_APP_KEY'] %>
+      SOKETI_DEFAULT_APP_SECRET: <%= ENV['PUSHER_APP_SECRET'] %>
     options:
       network: "server01.net" # necessary when adding services to a pre-existing load balancer
