@@ -19,6 +19,7 @@ yarn-error.log
 /.vscode
 
 # laravel Turbo
+.importmap-manifest.json
 .tailwindcss-manifest.json
 /bin/tailwindcss
 /public/dist
