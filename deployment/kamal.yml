@@ -3,9 +3,8 @@ service: laravel-skeleton
 image: 99linesofcode/laravel-skeleton
 
 builder:
+  dockerfile: "./deployment/Dockerfile"
   multiarch: false
-
-config_file: ./deploy.yml
 
 env:
   secret:

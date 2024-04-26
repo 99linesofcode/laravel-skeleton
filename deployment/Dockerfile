@@ -9,7 +9,8 @@ COPY --from=caddy:builder /usr/bin/xcaddy /usr/bin/xcaddy
 
 # CGO must be enabled to build FrankenPHP
 ENV CGO_ENABLED=1 XCADDY_SETCAP=1 XCADDY_GO_BUILD_FLAGS="-ldflags '-w -s'"
-RUN xcaddy build \
+RUN set -eux; \
+  xcaddy build \
   --output /usr/local/bin/frankenphp \
   --with github.com/dunglas/frankenphp=./ \
   --with github.com/dunglas/frankenphp/caddy=./caddy/ \
@@ -17,15 +18,11 @@ RUN xcaddy build \
 
 FROM ${BASE_IMAGE} AS runner
 
-LABEL org.opencontainers.image.authors="99linesofcode@gmail.com"
-LABEL org.opencontainers.image.source=https://github.com/99linesofcode/laravel-skeleton
-LABEL org.opencontainers.image.vendor="99linesofcode"
+WORKDIR /app
 
-# Replace the official binary by the one containing our custom modules
-COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
-COPY --link Caddyfile /etc/caddy/Caddyfile
-
-RUN install-php-extensions \
+RUN set -eux; \
+  install-php-extensions \
+  @composer \
   intl \
   pdo_pgsql \
   pdo_mysql \
