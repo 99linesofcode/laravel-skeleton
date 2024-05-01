@@ -20,7 +20,7 @@
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-health": "^1.22",
         "tonysm/importmap-laravel": "^1.4",
-        "tonysm/tailwindcss-laravel": "^0.10.1",
+        "tonysm/tailwindcss-laravel": "^0.14.0",
         "nunomaduro/collision": "^7.0"
     },
     "require-dev": {
