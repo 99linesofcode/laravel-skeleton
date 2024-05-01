@@ -1,11 +1,11 @@
 version: 2
 updates:
 - package-ecosystem: composer
-  directory: '/'
+  directory: "/"
   schedule:
     interval: daily
-    time: '00:00'
-  open-pull-requests-limit: 10
+    time: "06:00"
+    timezone: "Etc/UTC"
   reviewers:
     - 99linesofcode
   assignees:
@@ -16,11 +16,11 @@ updates:
     include: scope
 
 - package-ecosystem: github-actions
-  directory: '/'
+  directory: "/"
   schedule:
     interval: daily
-    time: '00:00'
-  open-pull-requests-limit: 10
+    time: "06:00"
+    timezone: "Etc/UTC"
   reviewers:
     - 99linesofcode
   assignees:
