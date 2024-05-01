@@ -1,3 +1,12 @@
+## [10.1.1](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.0...v10.1.1) (2024-05-01)
+
+
+### Bug Fixes
+
+* **dependabot:** shouldn't be stored in workflows/ ([e663afd](https://github.com/99linesofcode/laravel-skeleton/commit/e663afdfd90dae78bd22bbfc554ad5e5b7dc9422))
+
+
+
 # [10.1.0](https://github.com/99linesofcode/laravel-skeleton/compare/v10.0.0...v10.1.0) (2024-04-30)
 
 
