@@ -1,3 +1,13 @@
+## [10.1.2](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.1...v10.1.2) (2025-02-13)
+
+
+### Bug Fixes
+
+* **changelog:** GITHUB_TOKEN needed write permission to commit and push to write protected branches ([5df76b5](https://github.com/99linesofcode/laravel-skeleton/commit/5df76b5e95581d29cb807a7a688a8048cdca3bf1))
+* **deps:** bump tonysm/tailwindcss-laravel from 0.10.1 to 2.0.0 ([b0f438f](https://github.com/99linesofcode/laravel-skeleton/commit/b0f438f825d1dd6195ddf95c9c1a40b7d3258e5f))
+
+
+
 ## [10.1.1](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.0...v10.1.1) (2024-05-01)
 
 
