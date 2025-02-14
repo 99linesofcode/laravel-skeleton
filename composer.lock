@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2acae61d49b8d761192b2386ad1d467a",
+    "content-hash": "af86b5c7a70916935dd0d2db1d806bac",
     "packages": [
         {
             "name": "brick/math",
@@ -6847,33 +6847,33 @@
         },
         {
             "name": "tonysm/importmap-laravel",
-            "version": "1.8.3",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/importmap-laravel.git",
-                "reference": "ffe82430bc1c72f366dceb46ce2b2154f2ddc342"
+                "reference": "56153414dd273722bae2880401fecfab4bd7a16b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/ffe82430bc1c72f366dceb46ce2b2154f2ddc342",
-                "reference": "ffe82430bc1c72f366dceb46ce2b2154f2ddc342",
+                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/56153414dd273722bae2880401fecfab4bd7a16b",
+                "reference": "56153414dd273722bae2880401fecfab4bd7a16b",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^9.0|^10.0",
-                "illuminate/support": "^9.0|^10.0",
-                "php": "^8.1",
+                "illuminate/contracts": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.1|^8.2",
                 "spatie/laravel-package-tools": "^1.9"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7.4",
                 "laravel/pint": "^1.10",
-                "nunomaduro/collision": "^5.10|^6.0",
+                "nunomaduro/collision": "^6.0|^8.1",
                 "orchestra/testbench": "^7.17|^8.0",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5"
+                "phpunit/phpunit": "^10.5"
             },
             "bin": [
                 "bin/importmap"
@@ -6881,12 +6881,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Tonysm\\ImportmapLaravel\\ImportmapLaravelServiceProvider"
-                    ],
                     "aliases": {
                         "Importmap": "Tonysm\\ImportmapLaravel\\Facades\\Importmap"
-                    }
+                    },
+                    "providers": [
+                        "Tonysm\\ImportmapLaravel\\ImportmapLaravelServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -6914,7 +6914,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/importmap-laravel/issues",
-                "source": "https://github.com/tonysm/importmap-laravel/tree/1.8.3"
+                "source": "https://github.com/tonysm/importmap-laravel/tree/2.3.2"
             },
             "funding": [
                 {
@@ -6922,7 +6922,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-26T18:22:24+00:00"
+            "time": "2024-03-13T01:41:12+00:00"
         },
         {
             "name": "tonysm/tailwindcss-laravel",

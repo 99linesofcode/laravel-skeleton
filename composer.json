@@ -19,7 +19,7 @@
         "meilisearch/meilisearch-php": "^1.7",
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-health": "^1.22",
-        "tonysm/importmap-laravel": "^1.4",
+        "tonysm/importmap-laravel": "^2.3",
         "tonysm/tailwindcss-laravel": "^2.0.0",
         "nunomaduro/collision": "^7.0"
     },
