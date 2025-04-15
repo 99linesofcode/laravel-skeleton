@@ -1,3 +1,12 @@
+## [10.1.4](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.3...v10.1.4) (2025-04-15)
+
+
+### Bug Fixes
+
+* **deps:** bump meilisearch/meilisearch-php from 1.7.0 to 1.14.0 ([84ff0c1](https://github.com/99linesofcode/laravel-skeleton/commit/84ff0c1d718951a8bdce8f89226f6b5eb0368306))
+
+
+
 ## [10.1.3](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.2...v10.1.3) (2025-04-15)
 
 
@@ -29,64 +38,9 @@
 # [10.1.0](https://github.com/99linesofcode/laravel-skeleton/compare/v10.0.0...v10.1.0) (2024-04-30)
 
 
-### Bug Fixes
-
-* add missing meilisearch dependencies ([63f3a95](https://github.com/99linesofcode/laravel-skeleton/commit/63f3a9546dd37e288b565da115e4287ad29add78))
-* add user model and factory back in ([779cb68](https://github.com/99linesofcode/laravel-skeleton/commit/779cb680a0013438e0ad3c4e6545228197eeb28f))
-* autoload Artisan Commands path ([b7a2be7](https://github.com/99linesofcode/laravel-skeleton/commit/b7a2be7afd100fc097568b1330f86345e2c07053))
-* **breeze:** update User model use statements ([d4981b2](https://github.com/99linesofcode/laravel-skeleton/commit/d4981b2223fedcf878c90667d0c4433fc4c28484))
-* correct namespace for Laravel Breeze components ([8bb9bd4](https://github.com/99linesofcode/laravel-skeleton/commit/8bb9bd494b6dd81c1b315e173d25682bfc3b01de))
-* **deploy:** define defaults globally ([f0eef80](https://github.com/99linesofcode/laravel-skeleton/commit/f0eef80c63a667402ce846e72039319244b5a6a4))
-* **deploy:** nunomaduro/collision is not only a dev dep ([f0919d4](https://github.com/99linesofcode/laravel-skeleton/commit/f0919d4abec8dab19feaf2533a7f4a8cfacb28ed))
-* **deploy:** pass configuration from .env file ([a37e801](https://github.com/99linesofcode/laravel-skeleton/commit/a37e801d41dddd2d2a344c041d83dd1ca3fe9170))
-* **deploy:** run migrations before firing up the webserver ([346525f](https://github.com/99linesofcode/laravel-skeleton/commit/346525ffd47f7449914707667fa28f47814b4d0c))
-* **env:** correctly set APP_ENV to testing ([6b024e3](https://github.com/99linesofcode/laravel-skeleton/commit/6b024e35da21f0dd012b53506c77cf2e245496d8))
-* **factory:** override default discovery conventions ([70fe5e8](https://github.com/99linesofcode/laravel-skeleton/commit/70fe5e8fdd6eaf344500aee69bed5f792fa17db9))
-* first_name field was once renamed ([e97fd0b](https://github.com/99linesofcode/laravel-skeleton/commit/e97fd0bb9bca4ba4f46ee1481f15c7a72777276e))
-* formatting and example env variables ([1e8c448](https://github.com/99linesofcode/laravel-skeleton/commit/1e8c44820c4fc51b6c20889371ad400b4d8fd438))
-* **kamal:** update Github Container Registry PAT ([6b0937c](https://github.com/99linesofcode/laravel-skeleton/commit/6b0937ce952572a1d677a8860c9782e1195cbbbc))
-* override php-cs-fixer settings for remote development ([25ff980](https://github.com/99linesofcode/laravel-skeleton/commit/25ff98071789573779a9bd20fec45b1283d08660))
-* persist Caddy files to disk ([3886613](https://github.com/99linesofcode/laravel-skeleton/commit/3886613fb7529380870a4a810a2a07f500caa900))
-* **phpunit:** drop processUncoveredFiles ([40c4581](https://github.com/99linesofcode/laravel-skeleton/commit/40c4581a846ea1c3c093d2801f94e60d6caf64b9))
-* **soketi:** passing environment variables from .env ([5f96aa5](https://github.com/99linesofcode/laravel-skeleton/commit/5f96aa547ec143a8486442547420e33e26b16a82))
-* **stubs:** use unaliased BaseController instead ([3ea323e](https://github.com/99linesofcode/laravel-skeleton/commit/3ea323e1b024be09bd30a942fd0f0034acd97d18))
-* **test:** could not verify the hashed value configuration ([9b7522c](https://github.com/99linesofcode/laravel-skeleton/commit/9b7522c95c240fbd6e1fe4ce8c3bbaab0915179a))
-* **test:** resolve incorrect filter configuration warning ([f9b03ae](https://github.com/99linesofcode/laravel-skeleton/commit/f9b03ae9b6164c6e725e9f4dd8b4bb9b06bb525a))
-* **test:** use correct model namespace ([1580a78](https://github.com/99linesofcode/laravel-skeleton/commit/1580a78bb0674d876ec5054808e8e1ab55525cc1))
-* workaround unstable healthcheck attempts ([9ddc029](https://github.com/99linesofcode/laravel-skeleton/commit/9ddc0290a1106fa244a2f693f2405e96f555b370))
-* workflow was being executed in the wrong working-directory ([82ef42a](https://github.com/99linesofcode/laravel-skeleton/commit/82ef42a13986f9b2e85d8fb8aef85ac4615f5063))
-
-
 ### Features
 
-* **breeze:** install and rework directory structure ([50256ea](https://github.com/99linesofcode/laravel-skeleton/commit/50256ea581b5b5258317b2b809e04e8ec9d9ac50))
 * **changelog:** trigger shared workflow on push ([9997efc](https://github.com/99linesofcode/laravel-skeleton/commit/9997efc1873a8387700cd5dbe871e6327b307682))
-* create, read, update, delete Chirps ([39bf1fe](https://github.com/99linesofcode/laravel-skeleton/commit/39bf1fe6f777a0912dd19334e36dc8ae06f5b2e7))
-* **deploy:** pass in secrets ([e9db0c8](https://github.com/99linesofcode/laravel-skeleton/commit/e9db0c8b42fde67172078829548d6c79b083136b))
-* **deploy:** trigger FinalizeDeployment command ([ea36387](https://github.com/99linesofcode/laravel-skeleton/commit/ea3638793a03acf2864eb7c2fcfda50f6e61aa94))
-* Domain Driven Laravel 9 ([281a9d0](https://github.com/99linesofcode/laravel-skeleton/commit/281a9d08b5e21b1d3be847ff8e16558005a43226))
-* FrankenPHP based app server image ([6b7175e](https://github.com/99linesofcode/laravel-skeleton/commit/6b7175e43cfc73972d15dbb99974dd7de546ecc4))
-* github actions for dependabot and phpunit testing ([b943b7b](https://github.com/99linesofcode/laravel-skeleton/commit/b943b7bf3b8325f6f717b6a1f47f2a7b6b43eb57))
-* **health:** add spatie healtcheck package and endpoint ([6390dc9](https://github.com/99linesofcode/laravel-skeleton/commit/6390dc9796425d7d41eba5266c9543e6a9541787))
-* hotwire creating Chirps ([f8ed038](https://github.com/99linesofcode/laravel-skeleton/commit/f8ed038fd5e757739c9ce024a74b57edd885b4ac))
-* hotwire deleting Chirps ([5c75ca4](https://github.com/99linesofcode/laravel-skeleton/commit/5c75ca48a66feec8e4a5d770df08d27b55b31c33))
-* hotwire editing Chirps ([cb1c432](https://github.com/99linesofcode/laravel-skeleton/commit/cb1c432dac3674eb09b1ef33b9dd61d9e15b7ce8))
-* **kamal:** deployment with SSL and FrankenPHP ([57c2e28](https://github.com/99linesofcode/laravel-skeleton/commit/57c2e284504d8f962d2217762130ef7f28c7cf5d))
-* **kamal:** docker based deployments ([ccee4d9](https://github.com/99linesofcode/laravel-skeleton/commit/ccee4d9a9140241899400eefd6227a8859089939))
-* **mrsk:** rolling deployments using mrsk.dev ([41c4a3c](https://github.com/99linesofcode/laravel-skeleton/commit/41c4a3c8ba209d727cbcc90aa08ee624ea43f40a))
-* **phpstan:** code analysis of PHP and Laravel types available at runtime ([cb684a6](https://github.com/99linesofcode/laravel-skeleton/commit/cb684a680a8eee37855165cb7a45f7b51af20e9c))
-* **pint:** file formatting using laravel pint ([afe3c4d](https://github.com/99linesofcode/laravel-skeleton/commit/afe3c4d5c842d894580b7747442dbe10959428ef))
-* real time broadcasting of Chirps using ws ([71e9cb5](https://github.com/99linesofcode/laravel-skeleton/commit/71e9cb57ea11f9c7c1c16d9bff8ba8f47cdd141c))
-* run node in docker container ([459f7aa](https://github.com/99linesofcode/laravel-skeleton/commit/459f7aa7b6df8e0924a17d27b1ad52f1d561f370))
-* **sail:** improvements for better remote development support ([6558041](https://github.com/99linesofcode/laravel-skeleton/commit/65580414b3c7f1d3c7dce250edb35ac076af43d4))
-* **scout:** installation ([ab5649d](https://github.com/99linesofcode/laravel-skeleton/commit/ab5649dcc174c3a04b08fa321e83736c85e7b71c))
-* **scout:** publish configuration files ([36d45ba](https://github.com/99linesofcode/laravel-skeleton/commit/36d45ba549707d778c493009f8c695f79a9784e4))
-* share workspace .vscode configuration ([c29ce9b](https://github.com/99linesofcode/laravel-skeleton/commit/c29ce9b2edd6beaf676b2cd8bb8fd05bb50955f5))
-* **stubs:** use App/BaseController for application wide controller settings ([6139a35](https://github.com/99linesofcode/laravel-skeleton/commit/6139a35b7200f1d7570450f29910e193fc59ddf8))
-* **test:** pass repository name as input variable ([b45846c](https://github.com/99linesofcode/laravel-skeleton/commit/b45846c59fe50120a1d72c0ed3a2f1721629b808))
-* **traefik:** docker and kubernetes ready reverse proxy ([b9f4790](https://github.com/99linesofcode/laravel-skeleton/commit/b9f47906eaf122fa77d29b36f95790aa4cd3698e))
-* **workflow:** add dedicated test workflow config ([c3eb36e](https://github.com/99linesofcode/laravel-skeleton/commit/c3eb36e3860e861336462d0514335ecc623b92aa))
-* **workflow:** automatic deployment using Kamal ([340eba6](https://github.com/99linesofcode/laravel-skeleton/commit/340eba629b631171f52e932ded61b84a17609ee4))
 
 
 
