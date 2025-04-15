@@ -1,3 +1,12 @@
+## [10.1.3](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.2...v10.1.3) (2025-04-15)
+
+
+### Bug Fixes
+
+* **deps:** bump pusher/pusher-php-server from 7.2.4 to 7.2.7 ([706abd9](https://github.com/99linesofcode/laravel-skeleton/commit/706abd914a34f51a93dfd927e8c54d0eb2795e0e))
+
+
+
 ## [10.1.2](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.1...v10.1.2) (2025-02-13)
 
 
