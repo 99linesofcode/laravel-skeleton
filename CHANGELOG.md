@@ -1,3 +1,13 @@
+## [10.1.5](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.4...v10.1.5) (2025-04-16)
+
+
+### Bug Fixes
+
+* **deps:** bump guzzlehttp/guzzle from 7.9.2 to 7.9.3 ([e997768](https://github.com/99linesofcode/laravel-skeleton/commit/e997768dd347ac076d27037b0a0912f9c4d4ca85))
+* **deps:** bump laravel/tinker from 2.9.0 to 2.10.1 ([b048870](https://github.com/99linesofcode/laravel-skeleton/commit/b0488708e136ac81910bc301bde1848850c7758f))
+
+
+
 ## [10.1.4](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.3...v10.1.4) (2025-04-15)
 
 
@@ -32,15 +42,6 @@
 ### Bug Fixes
 
 * **dependabot:** shouldn't be stored in workflows/ ([e663afd](https://github.com/99linesofcode/laravel-skeleton/commit/e663afdfd90dae78bd22bbfc554ad5e5b7dc9422))
-
-
-
-# [10.1.0](https://github.com/99linesofcode/laravel-skeleton/compare/v10.0.0...v10.1.0) (2024-04-30)
-
-
-### Features
-
-* **changelog:** trigger shared workflow on push ([9997efc](https://github.com/99linesofcode/laravel-skeleton/commit/9997efc1873a8387700cd5dbe871e6327b307682))
 
 
 
