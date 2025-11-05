@@ -1,3 +1,12 @@
+## [10.1.8](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.7...v10.1.8) (2025-11-05)
+
+
+### Bug Fixes
+
+* **deps:** bump laravel/scout from 10.20.0 to 10.21.0 ([2ea6b3a](https://github.com/99linesofcode/laravel-skeleton/commit/2ea6b3ac99105e2d58d6a3abf6b7152c7a2f47b3))
+
+
+
 ## [10.1.7](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.6...v10.1.7) (2025-10-17)
 
 
@@ -49,15 +58,6 @@
 ### Bug Fixes
 
 * **deps:** bump meilisearch/meilisearch-php from 1.7.0 to 1.14.0 ([84ff0c1](https://github.com/99linesofcode/laravel-skeleton/commit/84ff0c1d718951a8bdce8f89226f6b5eb0368306))
-
-
-
-## [10.1.3](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.2...v10.1.3) (2025-04-15)
-
-
-### Bug Fixes
-
-* **deps:** bump pusher/pusher-php-server from 7.2.4 to 7.2.7 ([706abd9](https://github.com/99linesofcode/laravel-skeleton/commit/706abd914a34f51a93dfd927e8c54d0eb2795e0e))
 
 
 
