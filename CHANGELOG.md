@@ -1,3 +1,12 @@
+## [10.1.9](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.8...v10.1.9) (2025-11-14)
+
+
+### Bug Fixes
+
+* **deps:** bump laravel/scout from 10.21.0 to 10.22.0 ([69f2087](https://github.com/99linesofcode/laravel-skeleton/commit/69f208732b4c4f2e4730f465622dd708bc2e74b7))
+
+
+
 ## [10.1.8](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.7...v10.1.8) (2025-11-05)
 
 
@@ -49,15 +58,6 @@
 
 * **deps:** bump guzzlehttp/guzzle from 7.9.2 to 7.9.3 ([e997768](https://github.com/99linesofcode/laravel-skeleton/commit/e997768dd347ac076d27037b0a0912f9c4d4ca85))
 * **deps:** bump laravel/tinker from 2.9.0 to 2.10.1 ([b048870](https://github.com/99linesofcode/laravel-skeleton/commit/b0488708e136ac81910bc301bde1848850c7758f))
-
-
-
-## [10.1.4](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.3...v10.1.4) (2025-04-15)
-
-
-### Bug Fixes
-
-* **deps:** bump meilisearch/meilisearch-php from 1.7.0 to 1.14.0 ([84ff0c1](https://github.com/99linesofcode/laravel-skeleton/commit/84ff0c1d718951a8bdce8f89226f6b5eb0368306))
 
 
 
