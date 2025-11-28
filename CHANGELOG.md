@@ -1,3 +1,12 @@
+## [10.1.10](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.9...v10.1.10) (2025-11-28)
+
+
+### Bug Fixes
+
+* **deps:** bump laravel/tinker from 2.10.1 to 2.10.2 ([8c92171](https://github.com/99linesofcode/laravel-skeleton/commit/8c92171911e6b5552285126c0229cdcbc67352f8))
+
+
+
 ## [10.1.9](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.8...v10.1.9) (2025-11-14)
 
 
@@ -48,16 +57,6 @@
 * **deps:** bump spatie/laravel-health from 1.34.5 to 1.34.6 ([e73a71f](https://github.com/99linesofcode/laravel-skeleton/commit/e73a71f9d1e6c05d0ce4db56d9d31e24ccf894c1))
 * **deps:** bump spatie/laravel-health from 1.34.6 to 1.34.7 ([c123751](https://github.com/99linesofcode/laravel-skeleton/commit/c12375132435498b5723cd12fb08f8222b8fec32))
 * **deps:** bump spatie/laravel-health from 1.34.7 to 1.34.8 ([e34f0c3](https://github.com/99linesofcode/laravel-skeleton/commit/e34f0c332a4fb72f2dbb70777821033315cb99b5))
-
-
-
-## [10.1.5](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.4...v10.1.5) (2025-04-16)
-
-
-### Bug Fixes
-
-* **deps:** bump guzzlehttp/guzzle from 7.9.2 to 7.9.3 ([e997768](https://github.com/99linesofcode/laravel-skeleton/commit/e997768dd347ac076d27037b0a0912f9c4d4ca85))
-* **deps:** bump laravel/tinker from 2.9.0 to 2.10.1 ([b048870](https://github.com/99linesofcode/laravel-skeleton/commit/b0488708e136ac81910bc301bde1848850c7758f))
 
 
 
