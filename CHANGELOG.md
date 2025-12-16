@@ -1,3 +1,12 @@
+## [10.1.12](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.11...v10.1.12) (2025-12-16)
+
+
+### Bug Fixes
+
+* **deps:** bump http-interop/http-factory-guzzle from 1.2.0 to 1.2.1 ([592f4ce](https://github.com/99linesofcode/laravel-skeleton/commit/592f4ce333cbc0f44611f8a374de6e58cf13eb85))
+
+
+
 ## [10.1.11](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.10...v10.1.11) (2025-11-28)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **deps:** bump laravel/scout from 10.20.0 to 10.21.0 ([2ea6b3a](https://github.com/99linesofcode/laravel-skeleton/commit/2ea6b3ac99105e2d58d6a3abf6b7152c7a2f47b3))
-
-
-
-## [10.1.7](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.6...v10.1.7) (2025-10-17)
-
-
-### Bug Fixes
-
-* **deps:** bump laravel/scout from 10.19.1 to 10.20.0 ([caa4e6a](https://github.com/99linesofcode/laravel-skeleton/commit/caa4e6a78c7b724aca6be737c594f0112b9411c8))
 
 
 
