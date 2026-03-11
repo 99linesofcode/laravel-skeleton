@@ -1,3 +1,12 @@
+## [10.1.18](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.17...v10.1.18) (2026-03-11)
+
+
+### Bug Fixes
+
+* **deps:** bump laravel/scout from 10.24.0 to 11.0.0 ([1bf3ba2](https://github.com/99linesofcode/laravel-skeleton/commit/1bf3ba2bd93b258a54b00a234dac8abc0a8cc245))
+
+
+
 ## [10.1.17](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.16...v10.1.17) (2026-02-17)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **deps:** bump laravel/tinker from 2.10.2 to 2.11.0 ([d0e7491](https://github.com/99linesofcode/laravel-skeleton/commit/d0e74919e757b0afbe6d3f78bcf965b602891603))
-
-
-
-## [10.1.13](https://github.com/99linesofcode/laravel-skeleton/compare/v10.1.12...v10.1.13) (2025-12-17)
-
-
-### Bug Fixes
-
-* **deps:** bump laravel/scout from 10.22.1 to 10.23.0 ([2e22ee5](https://github.com/99linesofcode/laravel-skeleton/commit/2e22ee5e8c90ed1176e9b51f943c104b117f88ae))
 
 
 
