@@ -14,7 +14,7 @@
         "hotwired-laravel/turbo-laravel": "^1.12",
         "http-interop/http-factory-guzzle": "^1.2",
         "laravel/framework": "^10.0",
-        "laravel/scout": "^10.8",
+        "laravel/scout": "^11.0",
         "laravel/tinker": "^2.5",
         "meilisearch/meilisearch-php": "^1.7",
         "pusher/pusher-php-server": "^7.2",
