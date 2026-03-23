@@ -1,0 +1,64 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "99linesofcode/laravel-skeleton",
+    "description": "",
+    "keywords": [],
+    "homepage": "https://github.com/99linesofcode",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jordy Schreuders",
+            "email": "3071062+99linesofcode@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "larastan/larastan": "^3.9",
+        "rector/rector": "^2.3",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-mockery": "^2.0",
+        "barryvdh/laravel-ide-helper": "^3.7",
+        "laravel/pint": "^1.29",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-browser": "^4.3",
+        "pestphp/pest-plugin-faker": "^4.0",
+        "pestphp/pest-plugin-livewire": "^4.1",
+        "mockery/mockery": "^1.6"
+    },
+    "autoload": {},
+    "autoload-dev": {},
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=2G --ansi",
+        "ide-helper": [
+            "@php artisan ide-helper:generate --ansi",
+            "@php artisan ide-helper:meta --ansi",
+            "@php artisan ide-helper:models -M --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --test -v --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --memory-limit=2G --ansi"
+        ],
+        "format": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --fix --memory-limit=2G --ansi",
+            "@refactor"
+        ],
+        "refactor": "@php vendor/bin/rector --memory-limit=2G --ansi"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": [],
+            "dont-discover": []
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
