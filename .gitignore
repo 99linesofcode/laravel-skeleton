@@ -1,0 +1,13 @@
+.env
+.env.backup
+.env.production
+
+# devshell
+/.direnv
+
+# frontend
+auth.json
+/node_modules
+
+# backend
+/vendor
