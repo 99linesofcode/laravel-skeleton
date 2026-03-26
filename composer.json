@@ -28,8 +28,20 @@
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-mockery": "^2.0"
     },
-    "autoload": {},
-    "autoload-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Lines\\Skeleton\\": "app/"
+        },
+        "classmap": [
+            "database/factories",
+            "database/seeders"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lines\\Skeleton\\Tests\\": "tests/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "phpstan/extension-installer": true,
