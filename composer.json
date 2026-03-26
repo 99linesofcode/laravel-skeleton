@@ -13,19 +13,20 @@
         }
     ],
     "require-dev": {
-        "larastan/larastan": "^3.9",
-        "rector/rector": "^2.3",
-        "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "phpstan/phpstan-mockery": "^2.0",
         "barryvdh/laravel-ide-helper": "^3.7",
+        "fakerphp/faker": "^1.24",
+        "larastan/larastan": "^3.9",
         "laravel/pint": "^1.29",
+        "rector/rector": "^2.3",
+        "mockery/mockery": "^1.6",
         "pestphp/pest": "^4.4",
         "pestphp/pest-plugin-browser": "^4.3",
         "pestphp/pest-plugin-faker": "^4.0",
         "pestphp/pest-plugin-livewire": "^4.1",
-        "mockery/mockery": "^1.6"
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-mockery": "^2.0"
     },
     "autoload": {},
     "autoload-dev": {},
