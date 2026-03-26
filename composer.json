@@ -1,6 +1,7 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
     "name": "99linesofcode/laravel-skeleton",
+    "type": "project",
     "description": "",
     "keywords": [],
     "homepage": "https://github.com/99linesofcode",
@@ -12,22 +13,35 @@
         }
     ],
     "require-dev": {
-        "larastan/larastan": "^3.9",
-        "rector/rector": "^2.3",
-        "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "phpstan/phpstan-mockery": "^2.0",
         "barryvdh/laravel-ide-helper": "^3.7",
+        "fakerphp/faker": "^1.24",
+        "larastan/larastan": "^3.9",
         "laravel/pint": "^1.29",
+        "rector/rector": "^2.3",
+        "mockery/mockery": "^1.6",
         "pestphp/pest": "^4.4",
         "pestphp/pest-plugin-browser": "^4.3",
         "pestphp/pest-plugin-faker": "^4.0",
         "pestphp/pest-plugin-livewire": "^4.1",
-        "mockery/mockery": "^1.6"
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-mockery": "^2.0"
     },
-    "autoload": {},
-    "autoload-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Lines\\Skeleton\\": "app/"
+        },
+        "classmap": [
+            "database/factories",
+            "database/seeders"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lines\\Skeleton\\Tests\\": "tests/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "phpstan/extension-installer": true,
@@ -35,6 +49,15 @@
         }
     },
     "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"file_exists('phpunit.xml') || copy('phpunit.xml.dist', 'phpunit.xml');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "pnpm install",
+            "pnpm exec build"
+        ],
         "analyse": "@php vendor/bin/phpstan analyse --memory-limit=2G --ansi",
         "ide-helper": [
             "@php artisan ide-helper:generate --ansi",

@@ -2,6 +2,8 @@
 .env.backup
 .env.production
 
+*.log
+
 # devshell
 /.direnv
 
@@ -10,4 +12,9 @@ auth.json
 /node_modules
 
 # backend
+.phpunit.result.cache
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
 /vendor
