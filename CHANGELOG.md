@@ -1,4 +1,13 @@
-# 0.1.0 (2026-03-25)
+## [0.1.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.0...v0.1.1) (2026-03-30)
+
+
+### Bug Fixes
+
+* **deps:** bump devshell from `e949d95` to `7b1fc23` ([6acdc64](https://github.com/99linesofcode/laravel-skeleton/commit/6acdc64e5f1ed70a536af01fda10127592791d34))
+
+
+
+# [0.1.0](https://github.com/99linesofcode/laravel-skeleton/compare/cc0d7fc307f16dfae12c05b1286f03e8ec44dc81...v0.1.0) (2026-03-25)
 
 
 ### Bug Fixes
