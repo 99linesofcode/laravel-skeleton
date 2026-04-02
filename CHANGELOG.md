@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.1...v0.1.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* **dependabot:** introduce dependency cooldown to mitigate supply chain attacks ([a6bf996](https://github.com/99linesofcode/laravel-skeleton/commit/a6bf996ded9147f15b05a33631faa0498dc84351))
+
+
+
 ## [0.1.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.0...v0.1.1) (2026-03-30)
 
 
