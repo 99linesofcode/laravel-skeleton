@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.3...v0.2.0) (2026-06-08)
+
+
+### Features
+
+* define composer dev command using pnpm exec instead of default npx ([bc7e5c7](https://github.com/99linesofcode/laravel-skeleton/commit/bc7e5c77b2b14bc3fc26e2eae14c53f6ccab6218))
+
+
+
 ## [0.1.3](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.2...v0.1.3) (2026-04-19)
 
 
