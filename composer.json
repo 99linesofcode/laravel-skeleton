@@ -59,6 +59,10 @@
             "pnpm exec build"
         ],
         "analyse": "@php vendor/bin/phpstan analyse --memory-limit=2G --ansi",
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "pnpm exec concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"pnpm dev\" --names=server,queue,logs,vite --kill-others"
+        ],
         "ide-helper": [
             "@php artisan ide-helper:generate --ansi",
             "@php artisan ide-helper:meta --ansi",
