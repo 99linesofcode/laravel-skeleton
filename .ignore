@@ -1,1 +1,19 @@
+# devshell
+flake.lock
+
+# frontend
+package-lock.json
+pnpm-lock.yaml
+
+# backend
+composer.lock
+ide_helper.php
+
+!/vendor/
+/vendor/*
+# laravel/framework
+!/vendor/laravel/
+/vendor/laravel/*
+!/vendor/laravel/framework/
+
 !.env
