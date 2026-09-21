@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/99linesofcode/laravel-skeleton/compare/v0.2.1...v0.2.2) (2026-09-21)
+
+
+### Bug Fixes
+
+* **deps:** bump devshell from `c369d7f` to `21db3dd` ([#220](https://github.com/99linesofcode/laravel-skeleton/issues/220)) ([c768f22](https://github.com/99linesofcode/laravel-skeleton/commit/c768f2252fef88ac129e0a34e025703990bf0551))
+
+
+
 ## [0.2.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.2.0...v0.2.1) (2026-09-17)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * **dependabot:** introduce dependency cooldown to mitigate supply chain attacks ([a6bf996](https://github.com/99linesofcode/laravel-skeleton/commit/a6bf996ded9147f15b05a33631faa0498dc84351))
-
-
-
-## [0.1.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.0...v0.1.1) (2026-03-30)
-
-
-### Bug Fixes
-
-* **deps:** bump devshell from `e949d95` to `7b1fc23` ([6acdc64](https://github.com/99linesofcode/laravel-skeleton/commit/6acdc64e5f1ed70a536af01fda10127592791d34))
 
 
 
