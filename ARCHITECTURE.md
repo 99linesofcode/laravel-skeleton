@@ -2,10 +2,9 @@
 
 The architecture document for this repository, following the
 [architecture.md](https://architecture.md) schema — built so an agent (or a
-new colleague) can comprehend the repository from this file alone, and so the
-architectural principles in the `software-architecture` and
-`software-development` skills (expressed for Laravel in the `laravel` skill)
-are visible in how this repo actually works. Fill every section; update it in
+new colleague) can comprehend the repository from this file alone, and so this
+repository's own architectural principles (expressed for Laravel below) are
+visible in how it actually works. Fill every section; update it in
 the same change that alters the architecture it describes.
 
 This repository is a **cross-cutting starter**, not a complete application.
@@ -34,8 +33,8 @@ laravel-skeleton/                 # this repo: cross-cutting concerns
 └── .github/                      # changelog + automatic-updates workflows
 ```
 
-**Where the logic lives** (the structure a consumer app follows, per the
-`laravel` skill): a use case is an **action** (`App\...\Actions\*Action`,
+**Where the logic lives** (the structure a consumer app follows): a use case
+is an **action** (`App\...\Actions\*Action`,
 invokable, DTO in → model out); a readonly **DTO** (`*Data`) crosses the UI
 boundary; **models** are lean data + identity (no calculations in
 accessors); a computed value is calculated by an action and stored; repeated
@@ -76,8 +75,8 @@ action + DTO. Domain code never imports the UI.
 
 ### Ports & adapters
 
-Not defined in the starter. A consumer app follows the `laravel` skill's
-hexagonal-flavored layering: the **domain** owns the ports it needs when a
+Not defined in the starter. A consumer app follows the hexagonal-flavored
+layering stated here: the **domain** owns the ports it needs when a
 real external seam exists, `Infrastructure/` holds the adapters, and the
 composition root is the app's `ServiceProvider` (and each module's
 `*ServiceProvider`). The lean guardrail applies — a port is added when a
@@ -97,7 +96,7 @@ speculatively.
 
 None in the starter. The tooling integrates Composer (Packagist), npm/pnpm
 (Vite/Tailwind/Playwright) and the Nix devshell; a consumer app adds its own
-third-party integrations, each behind a port per the `laravel` skill.
+third-party integrations, each behind a port (§12).
 
 ## 6. Deployment & Infrastructure
 
@@ -160,8 +159,8 @@ third-party integrations, each behind a port per the `laravel` skill.
 - **No ecosystem-neutral concerns.** `.editorconfig`, `.prettierrc`,
   `.gitignore` and `.ignore` come from `git-skeleton` via rebase — they are
   not duplicated here.
-- **No custom architecture beyond the `laravel` skill.** Actions + DTOs,
-  lean models, custom query builders/collections, no repository over
+- **No custom architecture beyond the standard recorded here.** Actions +
+  DTOs, lean models, custom query builders/collections, no repository over
   Eloquent unless a real storage-swap seam exists.
 - **`Infrastructure/` stays empty until needed.** No speculative ports or
   adapters.
@@ -200,9 +199,8 @@ Date of Last Update: 2026-10-06
 
 ## 12. Conventions & Boundaries
 
-The house standards this repository adheres to — the full contract lives in
-the `software-architecture` and `laravel` skills; this section records what
-is enforced **here**.
+The house standards this repository adheres to — stated here in full; this
+section records what is enforced **here**.
 
 - **Folder structure**: PSR-4. This starter autoloads `Lines\Skeleton\` →
   `app/`; a module/package uses `Lines\<Module>\` → `src/` with the
