@@ -26,7 +26,8 @@
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
-        "phpstan/phpstan-mockery": "^2.0"
+        "phpstan/phpstan-mockery": "^2.0",
+        "deptrac/deptrac": "^4.7"
     },
     "autoload": {
         "psr-4": {
@@ -70,7 +71,8 @@
         ],
         "lint": [
             "@php vendor/bin/pint --test -v --ansi",
-            "@php vendor/bin/phpstan analyse --verbose --memory-limit=2G --ansi"
+            "@php vendor/bin/phpstan analyse --verbose --memory-limit=2G --ansi",
+            "@php vendor/bin/deptrac analyse --no-progress"
         ],
         "format": [
             "@php vendor/bin/pint --ansi",
