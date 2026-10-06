@@ -135,7 +135,7 @@ third-party integrations, each behind a port (§12).
   `vendor/bin/pest`.
 - **Code quality**: **Pint** (formatting), **PHPStan via Larastan**
   (`analyse`), **Rector** (refactors). Composer scripts: `lint` (Pint
-  `--test` + PHPStan), `format` (Pint + PHPStan `--fix` + Rector),
+  `--test` + PHPStan + deptrac), `format` (Pint + PHPStan `--fix` + Rector),
   `refactor`, `analyse`, `dev`.
 - **Mechanical gates** (and what each makes impossible):
   - `composer lint` — Pint formatting check plus PHPStan analysis; a style
@@ -147,8 +147,10 @@ third-party integrations, each behind a port (§12).
     equivalent of `eslint-plugin-boundaries`) — the layer contract
     (`App`/UI → `Domain` → `Infrastructure`; `Domain` imports no UI;
     `Infrastructure` implements ports the domain owns) is the rule it
-    enforces. It is the designated gate for consumers of this skeleton; it is
-    not yet wired into this starter's `composer.json`/CI.
+    enforces. Wired into `composer lint` and the `analyse` workflow; layers
+    match by namespace, so the rules hold wherever a consumer puts the code.
+    The composition root (the `*ServiceProvider`) sits outside the layers on
+    purpose: it is the one place wiring happens.
 
 ## 9. Future Considerations / Roadmap
 
@@ -170,7 +172,9 @@ third-party integrations, each behind a port (§12).
 **Known debt / open items**: `phpunit.xml.dist`'s `<source><include>`
 currently points at `src` while the PSR-4 root is `app/`; a consumer that
 uses `app/` should align it. `rector.php` already points at `app/` and
-`tests/`.
+`tests/`. `composer lint`'s PHPStan leg needs a `phpstan.neon` (or explicit
+paths) — the starter ships neither, so that leg fails until a consumer adds
+the config with its merge; Pint and deptrac run green on the bare starter.
 
 ## 10. Project Identification
 
