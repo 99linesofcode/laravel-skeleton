@@ -100,11 +100,14 @@ third-party integrations, each behind a port (§12).
 
 ## 6. Deployment & Infrastructure
 
-- **Consumption**: create a project repo, add this as a secondary remote
-  (`git remote add skeleton git@github.com:99linesofcode/laravel-skeleton.git`),
-  `git fetch skeleton`, `git rebase skeleton/main`, then `rsync -ac
-  tmp_dir/ project_dir/` to merge the `laravel new` output. Updates flow the
-  same way; `git diff` shows what to keep or toss.
+- **Consumption**: `/instantiate` creates a project repo from it; by hand,
+  add a remote named after it
+  (`git remote add laravel-skeleton git@github.com:99linesofcode/laravel-skeleton.git`),
+  `git fetch laravel-skeleton`,
+  `git merge --allow-unrelated-histories laravel-skeleton/main`, then
+  `rsync -ac tmp_dir/ project_dir/` to bring in the `laravel new` output.
+  Updates are a plain `git merge laravel-skeleton/main`, never a rebase
+  (git-skeleton's ADR 0001); `git diff` shows what to keep or toss.
 - **Local environment**: the `devshell` submodule (`devshell-php`) via
   `.envrc` → `use flake ./devshell`; `direnv allow` to activate.
 - **CI/CD**: GitHub Actions — `changelog.yaml` (on push to `main`) and
@@ -159,7 +162,7 @@ third-party integrations, each behind a port (§12).
 - **Not a complete application.** The `laravel new` output is merged in by
   the consumer; the starter carries only cross-cutting concerns.
 - **No ecosystem-neutral concerns.** `.editorconfig`, `.prettierrc`,
-  `.gitignore` and `.ignore` come from `git-skeleton` via rebase — they are
+  `.gitignore` and `.ignore` come from `git-skeleton` via merge — they are
   not duplicated here.
 - **No custom architecture beyond the standard recorded here.** Actions +
   DTOs, lean models, custom query builders/collections, no repository over
@@ -188,7 +191,8 @@ Date of Last Update: 2026-10-06
 
 ## 11. Glossary / Acronyms
 
-- **Skeleton** — a starter consumed via a secondary git remote and rebase.
+- **Skeleton** — a starter whose history a consumer merges; see
+  git-skeleton's `GLOSSARY.md`.
 - **PSR-4** — the PHP autoloading standard; here `Lines\Skeleton\` → `app/`.
 - **Action** — an invokable use case, `*Action`; the single seam the UI calls.
 - **DTO** — a readonly data transfer object, `*Data`, extending the shared
