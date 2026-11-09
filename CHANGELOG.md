@@ -1,3 +1,17 @@
+## [0.3.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.3.0...v0.3.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 5.0.9 to 5.0.12 ([#229](https://github.com/99linesofcode/laravel-skeleton/issues/229)) ([6890c47](https://github.com/99linesofcode/laravel-skeleton/commit/6890c4756e3b679605d0e3ee8763dbb4771cb0f7))
+* **deps:** bump devshell from `4075c8d` to `5278d4d` ([#226](https://github.com/99linesofcode/laravel-skeleton/issues/226)) ([93ad954](https://github.com/99linesofcode/laravel-skeleton/commit/93ad9545b188b59140346b6c5ec5a4ea3e2d42c7))
+* **deps:** bump follow-redirects from 1.16.0 to 1.16.1 ([#234](https://github.com/99linesofcode/laravel-skeleton/issues/234)) ([66a313a](https://github.com/99linesofcode/laravel-skeleton/commit/66a313a7600182a678d32e2b8ec3805bd6507592))
+* **deps:** bump follow-redirects from 1.16.1 to 1.16.2 ([#237](https://github.com/99linesofcode/laravel-skeleton/issues/237)) ([98be77c](https://github.com/99linesofcode/laravel-skeleton/commit/98be77c5063ccc78190fa1f4854e569a81cfb2f7))
+* **deps:** bump ip-address from 10.2.0 to 10.7.4 ([#231](https://github.com/99linesofcode/laravel-skeleton/issues/231)) ([b5e8b7b](https://github.com/99linesofcode/laravel-skeleton/commit/b5e8b7b4a436f547363d854b2ea99e7533371a64))
+* **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([#230](https://github.com/99linesofcode/laravel-skeleton/issues/230)) ([baf7240](https://github.com/99linesofcode/laravel-skeleton/commit/baf7240144c368ca5a2f3a7a775a81fa2211303b))
+
+
+
 # [0.3.0](https://github.com/99linesofcode/laravel-skeleton/compare/v0.2.3...v0.3.0) (2026-10-06)
 
 
@@ -31,15 +45,6 @@
 ### Bug Fixes
 
 * **deps:** bump devshell from `7b1fc23` to `c369d7f` ([#217](https://github.com/99linesofcode/laravel-skeleton/issues/217)) ([3ff681c](https://github.com/99linesofcode/laravel-skeleton/commit/3ff681cfb49d52c251e7ada414e45af83178af50))
-
-
-
-# [0.2.0](https://github.com/99linesofcode/laravel-skeleton/compare/v0.1.3...v0.2.0) (2026-06-08)
-
-
-### Features
-
-* define composer dev command using pnpm exec instead of default npx ([bc7e5c7](https://github.com/99linesofcode/laravel-skeleton/commit/bc7e5c77b2b14bc3fc26e2eae14c53f6ccab6218))
 
 
 
