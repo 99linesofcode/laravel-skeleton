@@ -77,7 +77,11 @@
             "@php vendor/bin/phpstan analyse --fix --memory-limit=2G --ansi",
             "@refactor"
         ],
-        "refactor": "@php vendor/bin/rector --memory-limit=2G --ansi"
+        "refactor": "@php vendor/bin/rector --memory-limit=2G --ansi",
+        "test": [
+            "@php artisan config:clear --ansi @no_additional_args",
+            "@php artisan test"
+        ]
     },
     "extra": {
         "laravel": {
