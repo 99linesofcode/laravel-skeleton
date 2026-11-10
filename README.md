@@ -24,6 +24,8 @@ Now, we'll copy the contents of `tmp_dir` into our `project_dir` using rsync: `r
 
 I work with NixOS and most of my code/starters ship with a `devshell`. If you have access to direnv and the Nix package manager, you can be up an running with `direnv allow`.
 
+Then run `composer setup` once. It installs the dependencies, creates `.env` and a local `phpunit.xml` from their committed templates, generates the app key, migrates the database and builds the frontend. `composer dev` runs the server, queue worker, log tail and Vite together.
+
 ## Contributing
 
 Please review the [Contribution Guidelines](https://github.com/99linesofcode/.github/blob/main/.github/CONTRIBUTING.md).
