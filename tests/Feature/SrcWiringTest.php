@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Gate;
 |
 | The skeleton ships no src/ code, so these tests drive fixture classes kept
 | under tests/Fixtures/. For each test, the src/ fixtures are copied under the
-| root namespace composer.json maps to src/ (Lines\Skeleton\ in the skeleton,
+| root namespace composer.json maps to src/ (a placeholder in the skeleton,
 | the app's own root after a merge) and the copy joins src/ in the Composer
 | class loader; tests/Fixtures/app/ joins app/ for App\. The resolvers see
 | the fixtures exactly as they would see classes under src/ and app/.
