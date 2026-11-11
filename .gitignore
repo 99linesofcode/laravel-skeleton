@@ -42,7 +42,6 @@ _ide_helper_models.php
 /tests/Browser/Screenshots
 
 phpstan.neon
-phpunit.xml
 
 # Workbench
 /workbench/storage
@@ -53,3 +52,4 @@ phpunit.xml
 /public/hot
 /public/storage
 /storage/*.key
+/storage/pail

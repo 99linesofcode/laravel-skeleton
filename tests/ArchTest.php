@@ -11,19 +11,19 @@ declare(strict_types=1);
 | `suffix` and `shape`. Each test is named after the rule it checks, so a
 | failure names the rule. `public-interface` is left out: an application has
 | no outside consumers. Nothing here names a context or this application: the
-| root namespace is the one composer.json maps to app/, and the contexts are
-| the folders found under app/Core/. app/Providers/ is the composition root.
-| Framework-owned files (migrations, routes, views, config, lang) sit outside
-| app/ and outside the check. An application that departs from a rule
-| records it in CODING_STANDARDS.md and edits this file.
+| root namespace is the one composer.json maps to src/, and the contexts are
+| the folders found under src/Core/. app/ holds Laravel's own folders and
+| sits outside the check for now. Framework-owned files (migrations, routes,
+| views, config, lang) sit outside src/ and outside the check. An application
+| that departs from a rule records it in CODING_STANDARDS.md and edits this file.
 |
 */
 
 $base = dirname(__DIR__);
 $composer = json_decode((string) file_get_contents($base.'/composer.json'), true);
-$root = (string) array_search('app/', $composer['autoload']['psr-4'], true);
+$root = (string) array_search('src/', $composer['autoload']['psr-4'], true);
 $root = rtrim($root, '\\');
-$source = $base.'/app';
+$source = $base.'/src';
 
 // Whether any folder or class matches a namespace, `*` matching one segment.
 // Pest's arch layers fail on a `*` namespace that matches no folder, and a
