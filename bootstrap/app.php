@@ -11,6 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withEvents(discover: [
+        // Each context's listeners; AppServiceProvider maps their files to classes.
+        base_path('src/Core/*/Application/Listeners'),
+    ])
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
