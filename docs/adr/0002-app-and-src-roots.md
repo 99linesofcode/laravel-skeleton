@@ -3,7 +3,7 @@
 An app made from the skeleton keeps `app/` as conventional Laravel and puts the `architecture` skill's shape in `src/`:
 
 - `app/` (`App\`) is the UserInterface layer (controllers, requests, middleware, policies, commands) plus the composition root in `app/Providers/`. Stock `make:*` keeps writing here.
-- `src/` holds the shape's inside: `Core/<Context>/{Application,Domain}`, `Core/SharedKernel`, `Infrastructure/<Tool>` and `Lib`. Its root namespace is the one `composer.json` maps to `src/` (`Lines\Skeleton\` in the skeleton, renamed per app). Code and tests read it from `composer.json`, as `tests/ArchTest.php` does.
+- `src/` holds the shape's inside: `Core/<Context>/{Application,Domain}`, `Core/SharedKernel`, `Infrastructure/<Tool>` and `Lib`. Its root namespace is the one `composer.json` maps to `src/`, a placeholder in the skeleton that each app renames to its own. Code and tests read it from `composer.json`, as `tests/ArchTest.php` does.
 
 We rejected two other layouts:
 
@@ -20,7 +20,7 @@ laravel-module-user owns the auth model that `config/auth.php` names. The core k
 
 - **direction**: `app/` may use all of `src/Core`, models included. Only `app/Providers` may use `src/Infrastructure`, and nothing in `src/` uses `App\`.
 - **package**: other `Lines\` packages are reached only from `app/Providers` and `src/Infrastructure`. Any code may use laravel-module-support's `Core\SharedKernel` and `Lib`, and `app/` may use a package's `UserInterface`.
-- **sideways**, **suffix** and **shape** apply under `src/`. The shape rule also keeps the shape's layer and role folders out of the top of `app/`, and requires every PHP file under `src/` to declare a namespace under the app's root, which catches a skeleton merge that brings in a `Lines\Skeleton` file.
+- **sideways**, **suffix** and **shape** apply under `src/`. The shape rule also keeps the shape's layer and role folders out of the top of `app/`, and requires every PHP file under `src/` to declare a namespace under the app's root, which catches a skeleton merge that brings in a file under the skeleton's placeholder namespace.
 - **public-interface** stays out: an app has no outside consumers.
 
 An app that departs from a rule records it in `CODING_STANDARDS.md` and edits the test.
