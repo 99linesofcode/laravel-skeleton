@@ -10,7 +10,7 @@ Set up a new laravel project using `laravel new tmp_dir`. Once we're done settin
 
 Create a new project repository, with `/instantiate` from an empty `project_dir` or by hand:
 
-1. `mkdir project_dir`
+1. `mkdir project_dir && cd project_dir`
 1. `git init`
 1. `git remote add laravel-skeleton git@github.com:99linesofcode/laravel-skeleton.git`;
 1. `git fetch laravel-skeleton`;
