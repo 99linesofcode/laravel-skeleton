@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Pest\Arch\Repositories\ObjectsRepository;
-
 /*
 |--------------------------------------------------------------------------
 | Architecture
@@ -132,45 +130,73 @@ if ($exists("{$root}\\Core")) {
 /*
 | package: other Lines\ packages are reached only through the composition
 | root and the adapters. Elsewhere a class uses no Lines\ namespace but the
-| src/ root, support's shared kernel and Lib, and, from app/ only, a
+| src/ root, a package's shared kernel and Lib, and, from app/ only, a
 | package's UserInterface. Third-party packages stay unrestricted.
+|
+| The other packages are the ones Composer installed with a PSR-4 prefix
+| under Lines\. Their closed namespaces are what sits directly under each
+| PSR-4 directory, with Core split into its contexts, less the open ones.
 */
 
-test('package: other Lines\ packages are used only from app/Providers and src/Infrastructure', function () use ($root, $app, $support, $compositionRoot): void {
-    $offenders = [];
+$installed = json_decode((string) file_get_contents($base.'/vendor/composer/installed.json'), true);
 
-    // Reads uses through Pest's own repository, as the arch() tests do: a
-    // use counts only when the used class exists. Pest's toUse cannot say
-    // "every Lines\ namespace but these", so this test reads them itself.
-    $check = function (string $namespace, array $skip, callable $allowed) use (&$offenders): void {
-        foreach (ObjectsRepository::getInstance()->allByNamespace($namespace) as $object) {
-            if (! str_starts_with($object->name, $namespace.'\\')) {
-                continue;
+/** @var array<string, array<int, string>> $packages */
+$packages = [];
+
+foreach ($installed['packages'] ?? $installed as $package) {
+    foreach ($package['autoload']['psr-4'] ?? [] as $prefix => $paths) {
+        $prefix = rtrim($prefix, '\\');
+
+        if (str_starts_with($prefix, 'Lines\\') && $prefix !== $root) {
+            foreach ((array) $paths as $path) {
+                $packages[$prefix][] = $base.'/vendor/composer/'.$package['install-path'].'/'.$path;
             }
+        }
+    }
+}
 
-            foreach ($skip as $prefix) {
-                if (str_starts_with($object->name, $prefix.'\\')) {
-                    continue 2;
+// The namespaces of the other packages but the open ones, given relative to each package.
+$closed = function (array $open) use ($packages): array {
+    $namespaces = [];
+
+    foreach ($packages as $prefix => $paths) {
+        foreach ($paths as $path) {
+            foreach (glob(rtrim($path, '/').'/*') ?: [] as $entry) {
+                if (! is_dir($entry) && ! str_ends_with($entry, '.php')) {
+                    continue;
                 }
-            }
 
-            foreach ($object->uses as $use) {
-                if (str_starts_with($use, 'Lines\\') && ! $allowed($use)) {
-                    $offenders[] = "{$object->name} uses {$use}";
+                $name = basename($entry, '.php');
+                $names = is_dir($entry) && $name === 'Core'
+                    ? array_map(fn (string $context): string => 'Core\\'.basename($context, '.php'), glob($entry.'/*') ?: [])
+                    : [$name];
+
+                foreach (array_diff($names, $open) as $closed) {
+                    $namespaces[] = "{$prefix}\\{$closed}";
                 }
             }
         }
-    };
+    }
 
-    $isOpen = fn (string $use): bool => str_starts_with($use, $root.'\\')
-        || array_filter($support, fn (string $prefix): bool => str_starts_with($use, $prefix)) !== [];
+    return array_values(array_unique($namespaces));
+};
 
-    $check($app, [$compositionRoot], fn (string $use): bool => $isOpen($use)
-        || preg_match('/^Lines\\\\[^\\\\]+\\\\UserInterface\\\\/', $use) === 1);
-    $check($root, ["{$root}\\Infrastructure"], $isOpen);
+$fromApp = $closed(['Core\\SharedKernel', 'Lib', 'UserInterface']);
+$fromSource = $closed(['Core\\SharedKernel', 'Lib']);
 
-    expect(array_values(array_unique($offenders)))->toBe([]);
-});
+if ($fromApp !== []) {
+    arch("package: {$app} uses another Lines\\ package only through {$compositionRoot}, its shared kernel, Lib and UserInterface")
+        ->expect($app)
+        ->not->toUse($fromApp)
+        ->ignoring($compositionRoot);
+}
+
+if (glob($source.'/*') !== [] && $fromSource !== []) {
+    arch('package: src/ uses another Lines\\ package only through Infrastructure, its shared kernel and Lib')
+        ->expect($root)
+        ->not->toUse($fromSource)
+        ->ignoring("{$root}\\Infrastructure");
+}
 
 /*
 | sideways: a context uses no other context's code. Every context folder on
