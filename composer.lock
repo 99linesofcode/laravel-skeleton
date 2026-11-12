@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93ac68cebebb697b533681ac55658ae2",
+    "content-hash": "be99e3a6198a8f68b62510ca92c13d0a",
     "packages": [
         {
             "name": "brick/math",
@@ -6131,16 +6131,16 @@
     "packages-dev": [
         {
             "name": "99linesofcode/laravel-shape",
-            "version": "dev-feat/laravel-app-layout",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:99linesofcode/laravel-shape.git",
-                "reference": "78d2b15f7a8e685422457eda585dec728451e60e"
+                "reference": "296524835648565393797515da4355b01e6e0d32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/99linesofcode/laravel-shape/zipball/78d2b15f7a8e685422457eda585dec728451e60e",
-                "reference": "78d2b15f7a8e685422457eda585dec728451e60e",
+                "url": "https://api.github.com/repos/99linesofcode/laravel-shape/zipball/296524835648565393797515da4355b01e6e0d32",
+                "reference": "296524835648565393797515da4355b01e6e0d32",
                 "shasum": ""
             },
             "require": {
@@ -6251,7 +6251,7 @@
             ],
             "description": "Artisan generators that write the architecture shape's roles into a Laravel app's src/",
             "homepage": "https://github.com/99linesofcode/laravel-shape",
-            "time": "2026-11-11T23:05:45+00:00"
+            "time": "2026-11-12T12:28:58+00:00"
         },
         {
             "name": "amphp/amp",
@@ -12241,9 +12241,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "99linesofcode/laravel-shape": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
