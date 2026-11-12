@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/99linesofcode/laravel-skeleton/compare/v0.4.1...v0.5.0) (2026-11-12)
+
+
+### Features
+
+* **users:** sign users in through laravel-module-user's auth model ([db90d33](https://github.com/99linesofcode/laravel-skeleton/commit/db90d338313b4b7f7c7b88c1315d8531e926948a))
+
+
+
 ## [0.4.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.4.0...v0.4.1) (2026-11-12)
 
 
@@ -72,15 +81,6 @@
 ### Features
 
 * **lint:** enforce the layer contract with deptrac ([#224](https://github.com/99linesofcode/laravel-skeleton/issues/224)) ([df4d280](https://github.com/99linesofcode/laravel-skeleton/commit/df4d280f7bdd92a4b7fce7f73837767b7beda7d7))
-
-
-
-## [0.2.3](https://github.com/99linesofcode/laravel-skeleton/compare/v0.2.2...v0.2.3) (2026-10-06)
-
-
-### Bug Fixes
-
-* **deps:** bump devshell from `21db3dd` to `4075c8d` ([#223](https://github.com/99linesofcode/laravel-skeleton/issues/223)) ([de96621](https://github.com/99linesofcode/laravel-skeleton/commit/de966218ff1d93f501368e27a8d81a221184cb8b))
 
 
 
