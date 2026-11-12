@@ -24,3 +24,7 @@ laravel-module-user owns the auth model that `config/auth.php` names. The core k
 - **public-interface** stays out: an app has no outside consumers.
 
 An app that departs from a rule records it in `CODING_STANDARDS.md` and edits the test.
+
+## laravel/laravel's own repository files stay out
+
+laravel/laravel ships files that run its own repository, not an app: `.github/dependabot.yml`, its `.github/workflows/`, `.styleci.yml` and Boost's `CLAUDE.md`. The skeleton deleted them and keeps its own `.github` from git-skeleton. When laravel/laravel changes one, the `upstream` merge stops on a modify/delete conflict in the skeleton: delete the file again. Apps merge the skeleton, not laravel/laravel, so they never see this conflict.
