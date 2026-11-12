@@ -6,22 +6,9 @@ A complete Laravel application that every one of my Laravel apps starts from and
 
 ### Setup
 
-Once per machine, tell Composer where the skeleton lives. It is not on Packagist, and this entry also works while the repository is private:
+Make an app with the skill suite's `/instantiate`, choosing the `laravel-app` stack. It merges this skeleton into a new repository, renames the `Lines\Skeleton` namespace to the app's own, then runs `composer setup`, `composer lint` and `composer test`.
 
-```sh
-composer config -g repositories.laravel-skeleton vcs git@github.com:99linesofcode/laravel-skeleton.git
-```
-
-Then make the app and join it to the skeleton's history:
-
-1. `laravel new <app> --using=99linesofcode/laravel-skeleton --phpunit --no-boost --no-node`. The flags keep the installer from rewriting `composer.json`, which would conflict with the merge below: the skeleton already ships Pest (`--phpunit` only skips installing it), Boost is not part of the skeleton, and `composer setup` installs the frontend.
-1. `cd <app> && git init && git add -A && git commit -m "chore: laravel new"`
-1. `git remote add laravel-skeleton git@github.com:99linesofcode/laravel-skeleton.git`
-1. `git fetch laravel-skeleton`
-1. `git merge --allow-unrelated-histories laravel-skeleton/main`
-1. `git submodule update --init`, which restores `devshell/`. Until this step, `.envrc`'s `use flake ./devshell` fails.
-
-To update, run `git fetch laravel-skeleton && git merge laravel-skeleton/main`. This brings the skeleton's changes and every laravel/laravel change the skeleton has merged. Merge, never rebase or squash (`docs/adr/0001-merge-the-skeleton-never-rebase.md`).
+To update an app, run `git fetch laravel-skeleton && git merge laravel-skeleton/main`. This brings the skeleton's changes and every laravel/laravel change the skeleton has merged. Merge, never rebase or squash (`docs/adr/0001-merge-the-skeleton-never-rebase.md`).
 
 ### Development environment
 
