@@ -2,13 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\Access\Gate as AccessGate;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Events\DiscoverEvents;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use ReflectionMethod;
 use SplFileInfo;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(SourceRoot::class, fn (): SourceRoot => SourceRoot::fromComposer($this->app->basePath()));
 
         $this->discoverListeners();
+        $this->resolvePolicies();
     }
 
     /**
@@ -29,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(SourceRoot $source): void
     {
         $this->resolveFactories($source);
-        $this->resolvePolicies($source);
     }
 
     /**
@@ -68,15 +66,14 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * A model under src/ gets its policy from app/Policies/<Context>/; every
-     * other model keeps Laravel's default guess, asked of a gate without this
-     * callback.
+     * other model keeps Laravel's default guess. The framework's providers
+     * register first, so this binding replaces the framework's gate.
      */
-    private function resolvePolicies(SourceRoot $source): void
+    private function resolvePolicies(): void
     {
-        Gate::guessPolicyNamesUsing(function (string $model) use ($source): array|string {
-            return $source->policyFor($model, $this->app->getNamespace())
-                ?? (new ReflectionMethod(AccessGate::class, 'guessPolicyName'))
-                    ->invoke(new AccessGate($this->app, fn () => null), $model);
-        });
+        $this->app->singleton(Gate::class, fn (): SourceGate => new SourceGate(
+            $this->app,
+            fn () => call_user_func($this->app->make('auth')->userResolver()),
+        ));
     }
 }
