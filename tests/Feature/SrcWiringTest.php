@@ -90,6 +90,6 @@ it('discovers a listener in a context\'s Application/Listeners for the event it 
 });
 
 it('leaves a model outside src/ to Laravel\'s default factory and policy guess', function (): void {
-    expect(Factory::resolveFactoryName('App\Models\User'))->toBe('Database\Factories\UserFactory')
-        ->and(Gate::getPolicyFor('App\Models\User'))->toBeInstanceOf('App\Policies\UserPolicy');
+    expect(Factory::resolveFactoryName('App\Models\Post'))->toBe('Database\Factories\PostFactory')
+        ->and(Gate::getPolicyFor('App\Models\Post'))->toBeInstanceOf('App\Policies\PostPolicy');
 });
