@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/99linesofcode/laravel-skeleton/compare/v0.4.0...v0.4.1) (2026-11-12)
+
+
+### Bug Fixes
+
+* **arch:** open only laravel-module-support's shared kernel and Lib ([c84da59](https://github.com/99linesofcode/laravel-skeleton/commit/c84da591c030bd1fd532d5a2fa21483147934e5b))
+
+
+
 # [0.4.0](https://github.com/99linesofcode/laravel-skeleton/compare/v0.3.1...v0.4.0) (2026-11-12)
 
 
@@ -72,15 +81,6 @@
 ### Bug Fixes
 
 * **deps:** bump devshell from `21db3dd` to `4075c8d` ([#223](https://github.com/99linesofcode/laravel-skeleton/issues/223)) ([de96621](https://github.com/99linesofcode/laravel-skeleton/commit/de966218ff1d93f501368e27a8d81a221184cb8b))
-
-
-
-## [0.2.2](https://github.com/99linesofcode/laravel-skeleton/compare/v0.2.1...v0.2.2) (2026-09-21)
-
-
-### Bug Fixes
-
-* **deps:** bump devshell from `c369d7f` to `21db3dd` ([#220](https://github.com/99linesofcode/laravel-skeleton/issues/220)) ([c768f22](https://github.com/99linesofcode/laravel-skeleton/commit/c768f2252fef88ac129e0a34e025703990bf0551))
 
 
 
