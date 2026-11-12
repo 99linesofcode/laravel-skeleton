@@ -16,8 +16,7 @@ auth.json
 npm-debug.log
 
 # cache
-/.phpunit.cache
-/.phpunit.result.cache
+*.cache
 /build
 
 # build output
@@ -42,7 +41,6 @@ _ide_helper_models.php
 /tests/Browser/Screenshots
 
 phpstan.neon
-phpunit.xml
 
 # Workbench
 /workbench/storage
@@ -53,3 +51,4 @@ phpunit.xml
 /public/hot
 /public/storage
 /storage/*.key
+/storage/pail
