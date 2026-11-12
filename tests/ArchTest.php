@@ -130,12 +130,13 @@ if ($exists("{$root}\\Core")) {
 /*
 | package: other Lines\ packages are reached only through the composition
 | root and the adapters. Elsewhere a class uses no Lines\ namespace but the
-| src/ root, a package's shared kernel and Lib, and, from app/ only, a
-| package's UserInterface. Third-party packages stay unrestricted.
+| src/ root, laravel-module-support's shared kernel and Lib, and, from app/
+| only, any package's UserInterface. Third-party packages stay unrestricted.
 |
 | The other packages are the ones Composer installed with a PSR-4 prefix
 | under Lines\. Their closed namespaces are what sits directly under each
-| PSR-4 directory, with Core split into its contexts, less the open ones.
+| PSR-4 directory, with Core split into its contexts, less support's and the
+| ones a caller opens.
 */
 
 $installed = json_decode((string) file_get_contents($base.'/vendor/composer/installed.json'), true);
@@ -155,8 +156,8 @@ foreach ($installed['packages'] ?? $installed as $package) {
     }
 }
 
-// The namespaces of the other packages but the open ones, given relative to each package.
-$closed = function (array $open) use ($packages): array {
+// The namespaces of the other packages but support's and the open ones, given relative to each package.
+$closed = function (array $open) use ($packages, $support): array {
     $namespaces = [];
 
     foreach ($packages as $prefix => $paths) {
@@ -178,21 +179,24 @@ $closed = function (array $open) use ($packages): array {
         }
     }
 
-    return array_values(array_unique($namespaces));
+    return array_values(array_diff(
+        array_unique($namespaces),
+        array_map(fn (string $namespace): string => rtrim($namespace, '\\'), $support),
+    ));
 };
 
-$fromApp = $closed(['Core\\SharedKernel', 'Lib', 'UserInterface']);
-$fromSource = $closed(['Core\\SharedKernel', 'Lib']);
+$fromApp = $closed(['UserInterface']);
+$fromSource = $closed([]);
 
 if ($fromApp !== []) {
-    arch("package: {$app} uses another Lines\\ package only through {$compositionRoot}, its shared kernel, Lib and UserInterface")
+    arch("package: {$app} uses another Lines\\ package only through {$compositionRoot}, support's shared kernel and Lib, and UserInterface")
         ->expect($app)
         ->not->toUse($fromApp)
         ->ignoring($compositionRoot);
 }
 
 if (glob($source.'/*') !== [] && $fromSource !== []) {
-    arch('package: src/ uses another Lines\\ package only through Infrastructure, its shared kernel and Lib')
+    arch('package: src/ uses another Lines\\ package only through Infrastructure and support\'s shared kernel and Lib')
         ->expect($root)
         ->not->toUse($fromSource)
         ->ignoring("{$root}\\Infrastructure");
