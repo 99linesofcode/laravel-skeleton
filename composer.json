@@ -18,7 +18,7 @@
         "laravel/tinker": "^3.0"
     },
     "require-dev": {
-        "99linesofcode/laravel-shape": "^0.2",
+        "99linesofcode/laravel-shape": "^0.3",
         "barryvdh/laravel-ide-helper": "^3.7",
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",
