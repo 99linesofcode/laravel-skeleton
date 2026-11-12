@@ -125,6 +125,16 @@
     "prefer-stable": true,
     "repositories": [
         {
+            "name": "laravel-module-user",
+            "type": "vcs",
+            "url": "https://github.com/99linesofcode/laravel-module-user.git"
+        },
+        {
+            "name": "laravel-module-support",
+            "type": "vcs",
+            "url": "https://github.com/99linesofcode/laravel-module-support.git"
+        },
+        {
             "name": "laravel-shape",
             "type": "vcs",
             "url": "git@github.com:99linesofcode/laravel-shape.git"
