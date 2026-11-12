@@ -18,6 +18,7 @@
         "laravel/tinker": "^3.0"
     },
     "require-dev": {
+        "99linesofcode/laravel-shape": "dev-feat/laravel-app-layout",
         "barryvdh/laravel-ide-helper": "^3.7",
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",
@@ -121,5 +122,12 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "name": "laravel-shape",
+            "type": "vcs",
+            "url": "git@github.com:99linesofcode/laravel-shape.git"
+        }
+    ]
 }
